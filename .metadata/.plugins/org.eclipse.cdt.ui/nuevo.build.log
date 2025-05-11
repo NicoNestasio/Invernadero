@@ -1,0 +1,35 @@
+17:51:59 **** Build of configuration Debug for project nuevo ****
+make -r -j2 all 
+Building file: ../utilities/fsl_debug_console.c
+Building file: ../startup/startup_lpc845.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../utilities/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"utilities/fsl_debug_console.d" -MT"utilities/fsl_debug_console.o" -MT"utilities/fsl_debug_console.d" -o "utilities/fsl_debug_console.o" "../utilities/fsl_debug_console.c"
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../startup/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"startup/startup_lpc845.d" -MT"startup/startup_lpc845.o" -MT"startup/startup_lpc845.d" -o "startup/startup_lpc845.o" "../startup/startup_lpc845.c"
+Finished building: ../startup/startup_lpc845.c
+ 
+Building file: ../source/mtb.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/mtb.d" -MT"source/mtb.o" -MT"source/mtb.d" -o "source/mtb.o" "../source/mtb.c"
+Finished building: ../utilities/fsl_debug_console.c
+ 
+Building file: ../source/nuevo.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/nuevo.d" -MT"source/nuevo.o" -MT"source/nuevo.d" -o "source/nuevo.o" "../source/nuevo.c"
+Finished building: ../source/mtb.c
+ 
+Building file: ../source/semihost_hardfault.c
+../source/nuevo.c:10:10: fatal error: fsl_adc.h: No such file or directory
+ #include "fsl_adc.h"
+          ^~~~~~~~~~~
+compilation terminated.
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\nuevo\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/semihost_hardfault.d" -MT"source/semihost_hardfault.o" -MT"source/semihost_hardfault.d" -o "source/semihost_hardfault.o" "../source/semihost_hardfault.c"
+make: *** [source/subdir.mk:26: source/nuevo.o] Error 1
+make: *** Waiting for unfinished jobs....
+Finished building: ../source/semihost_hardfault.c
+ 
+"make -r -j2 all" terminated with exit code 2. Build might be incomplete.
+
+17:52:04 Build Failed. 3 errors, 0 warnings. (took 4s.296ms)
+

@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ksdk:manifest xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="SDK_2.x_LPC845BREAKOUT" name="LPC845BREAKOUT" brief="This is SDK version 2.7.0 manifest file. It describes the content of the LPC845BREAKOUT and additional settings for tools that support SDK version 2.7.0" format_version="3.6" api_version="2.0.0" configuration="2f420725ed9b5176c7ad867ba6c500f8" xsi:schemaLocation="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd http://nxp.com/mcuxpresso/sdk/sdk_manifest_v3.6.xsd">
+  <!--Timestamp (UTC): 2020-02-20 10:56:01.549064-->
+  <defines>
+    <define name="CPU_$|package|" value=""/>
+    <define name="CPU_$|package|_$|core|" value=""/>
+  </defines>
+  <externalDefinitions>
+    <definition extID="lpcxpresso845max"/>
+  </externalDefinitions>
+  <ksdk id="MCUXpresso270" name="MCUXpresso270" version="2.7.0" revision="303 2019-12-19"/>
+  <compilers>
+    <compiler id="compiler_gcc" name="gcc" type="gcc"/>
+  </compilers>
+  <toolchainSettings>
+    <toolchainSetting id="com.nxp.mcuxpresso" name="mcuxpresso" version="11.1.0" full_name="MCUXpresso IDE" compiler="compiler_gcc" toolchain="mcuxpresso">
+      <option id="gnu.cpp.compiler.option.optimization.flags" type="string" user_name="">
+        <value>-fno-common</value>
+      </option>
+      <option id="gnu.c.compiler.option.optimization.flags" type="string" user_name="">
+        <value>-fno-common</value>
+      </option>
+      <option id="gnu.cpp.link.option.nostdlibs" type="boolean" user_name="">
+        <value>true</value>
+      </option>
+      <option id="com.crt.advproject.link.cpp.flashconfigenable" type="boolean" user_name="">
+        <value>true</value>
+      </option>
+      <option id="com.crt.advproject.link.flashconfigenable" type="boolean" user_name="">
+        <value>true</value>
+      </option>
+      <option id="gnu.c.link.option.nostdlibs" type="boolean" user_name="">
+        <value>true</value>
+      </option>
+    </toolchainSetting>
+  </toolchainSettings>
+  <toolchains>
+    <toolchain id="mcuxpresso" name="MCUXpresso_IDE" version="11.1.0" full_name="MCUXpresso IDE" compiler="compiler_gcc" type="mcuxpresso" vendor="NXP Semiconductors" vendor_url="http://www.nxp.com">
+      <debug>
+        <debug_configuration id="com.crt.advproject.config.exe.release" name="Release Configuration" probe="LinkServer">
+          <scripts>
+            <script type="init" silent="false" emulators="${gdb.stub} -mi -info-emu">
+              <script>
+set remotetimeout 60000
+##target_extended_remote##
+set mem inaccessible-by-default ${mem.access}
+mon ondisconnect ${ondisconnect}
+set arm force-mode thumb
+${load}</script>
+            </script>
+            <script type="run" silent="false" emulators="${gdb.stub} -mi -info-emu">
+              <script>${run}</script>
+            </script>
+          </scripts>
+          <params>
+            <params id="vector.catch.release.mcuxpresso" name="vector.catch" value="false"/>
+            <params id="internal.cache.release.mcuxpresso" name="internal.cache" value="Disable"/>
+          </params>
+        </debug_configuration>
+        <debug_configuration id="com.crt.advproject.config.exe.debug" name="Debug Configuration" probe="LinkServer">
+          <scripts>
+            <script type="init" silent="false" emulators="${gdb.stub} -mi -info-emu">
+              <script>
+set remotetimeout 60000
+##target_extended_remote##
+set mem inaccessible-by-default ${mem.access}
+mon ondisconnect ${ondisconnect}
+set arm force-mode thumb
+${load}</script>
+            </script>
+            <script type="run" silent="false" emulators="${gdb.stub} -mi -info-emu">
+              <script>${run}</script>
+            </script>
+          </scripts>
+          <params>
+            <params id="vector.catch.debug.mcuxpresso" name="vector.catch" value="false"/>
+            <params id="internal.cache.debug.mcuxpresso" name="internal.cache" value="Disable"/>
+          </params>
+        </debug_configuration>
+        <debug_configuration id="com.nxp.mcuxpresso.core.debug.support.segger.debug" name="Debug Configuration" probe="Segger"/>
+        <debug_configuration id="com.nxp.mcuxpresso.core.debug.support.segger.release" name="Release Configuration" probe="Segger"/>
+      </debug>
+    </toolchain>
+  </toolchains>
+  <boards>
+    <board id="lpc845breakout" name="LPC845BREAKOUT" href="http://www.nxp.com/products/" version="1.0.0" package="LPC845M301JBD48">
+      <description>The LPC845 Breakout is an development platform for LPC845 MCU</description>
+      <image path="docs/images" type="image">
+        <files mask="LPC845BREAKOUT.gif"/>
+      </image>
+      <metadataSet>
+        <metadata key="html">
+          <specific>
+            <content>The LPC845 breakout board provides a powerful and flexible development system for NXP's low end Cortex-M0+-based LPC84x Family of MCUs, delivered in an ultra-low-cost evaluation board. This breakout board can be used with a range of development tools, including the MCUXpresso IDE toolchain. The LPCXpresso845 Breakout board is developed by NXP to enable evaluation of and prototyping with the LPC84x family of MCUs. The LPC845 breakout board features an on-board CMSIS-DAP debug and VCOM port, RGB user LEDs, capacitive touch button, user potentiometer and allows an easy prototyping experience with access to 38 LPC845 port pins.</content>
+          </specific>
+        </metadata>
+      </metadataSet>
+      <examples>
+        <example id="lpc845breakout_acomp_basic" name="acomp_basic" brief="The ACOMP Basic Example shows the simplest way to use ACOMP driver and help user with a quick start.In this example, user should indicate an input channel to capture a voltage signal (can be controlled by user) as the ACOMP's negative channel input. On the postive side, the internal voltage ladder is used to generate the fixed voltage abouthalf value of reference voltage.When running the project, change the input voltage of user-defined channel, then the comparator's output would changebetween logic one and zero when the user's voltage crosses the internal ladder's output. The endless loop in main() functionwould detect the logic value of comparator's output, and change the LED. The LED would be turned on when the compareoutput is logic one, or turned off when zero." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/acomp" path="boards/lpc845breakout/driver_examples/acomp/acomp_basic">
+          <external path="boards/lpc845breakout/driver_examples/acomp/acomp_basic" type="xml">
+            <files mask="acomp_basic.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_acomp_interrupt" name="acomp_interrupt" brief="The ACOMP Interrupt Example shows how to use interrupt with ACOMP driver.In this example, user should indicate an input channel to capture a voltage signal (can be controlled by user) as the ACOMP's negative channel input. On the postive side, the internal voltage ladder is used to generate the fixed voltage abouthalf value of reference voltage.When running the project, change the input voltage of user-defined channel, then the comparator's output would changebetween logic one and zero when the user-defined channel's voltage crosses the internal ladder's output. The change ofcomparator's output would generate the falling and rising edge events with their interrupts enabled. When any ACOMP interrupt happens, the ACOMP's ISR would turn on/off the LED light." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/acomp" path="boards/lpc845breakout/driver_examples/acomp/acomp_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/acomp/acomp_interrupt" type="xml">
+            <files mask="acomp_interrupt.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_capt_acomp" name="capt_acomp" brief="The CAPT ACOMP Example shows the Analog comparator measurement way to use CAPT driver and help user with a quick start.In this example, user should indicate  the set of X pins to use by writing to the XPINSEL field in thecontrol register. The CAPT work in Analog comparator measurement menthod. In Measure Voltage state, the module samples the analog comparator output, which is connected internally to the module. The analogcomparator must be enabled and properly configured, and one of the comparator analog inputs must be enabledand connected to the YH port pin. On some devices the YH port pin and an analog comparator input may sharea pad or pin. Otherwise, the YH port pin and the analog comparator input pin must be connected externally (wire-OR’d).Until the voltage on the analog comparator input increases above the configured threshold of the comparator, the module will sample ‘0’, above that it will sample ‘1’ (that is, the analog comparator has “triggered”.Then we would handle the CAPT ISR for triggered events or no-triggered events." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/capt" path="boards/lpc845breakout/driver_examples/capt/capt_acomp">
+          <external path="boards/lpc845breakout/driver_examples/capt/capt_acomp" type="xml">
+            <files mask="capt_acomp.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_capt_basic" name="capt_basic" brief="The CAPT Basic Example shows the simplest way(YH port pin measurement) to use CAPT driver and help user with a quick start.In this example, user should indicate  the set of X pins to use by writing to the XPINSEL field in thecontrol register. The CAPT work in YH port pin measurement menthod. In Measure Voltage state, the modulesamples the YH port pin (which is in input mode). Until the voltage on the pad increases above the VIH (HIGH-level input voltage) of the pad, the module will sample ‘0’, above VIH it will sample ‘1’ (that is,the YH port pin has “triggered”). Then we would handle the CAPT ISR for triggered events or no-triggered events." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/capt" path="boards/lpc845breakout/driver_examples/capt/capt_basic">
+          <external path="boards/lpc845breakout/driver_examples/capt/capt_basic" type="xml">
+            <files mask="capt_basic.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_crc" name="crc" brief="The CRC Example project is a demonstration program that uses the KSDK software to generate checksumsfor an ASCII string. Several CRC protocols are implemented using the CRC driver API." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples" path="boards/lpc845breakout/driver_examples/crc">
+          <external path="boards/lpc845breakout/driver_examples/crc" type="xml">
+            <files mask="crc.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_ctimer_match_example" name="ctimer_match_example" brief="The CTimer Example project is to demonstrate usage of the KSDK ctimer driver.In this example, the match feature of the CTimer is used to toggle the output level." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/ctimer" path="boards/lpc845breakout/driver_examples/ctimer/simple_match">
+          <external path="boards/lpc845breakout/driver_examples/ctimer/simple_match" type="xml">
+            <files mask="ctimer_match_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_ctimer_match_interrupt_example" name="ctimer_match_interrupt_example" brief="The Simple Match Interrupt project is to demonstrate usage of the SDK CTimer driver with interrupt callback functionsIn this example the upon match and IO pin connected to the LED is toggled and the timer is reset, so it would generate a square wave.With an interrupt callback the match value is changed frequently in such a way that the frequency of the output square wave is increased gradually." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/ctimer" path="boards/lpc845breakout/driver_examples/ctimer/simple_match_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/ctimer/simple_match_interrupt" type="xml">
+            <files mask="ctimer_match_interrupt_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_ctimer_pwm_example" name="ctimer_pwm_example" brief="The CTimer Example project is to demonstrate usage of the KSDK ctimer driver.In this example, CTimer is used to generate a PWM signal." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/ctimer" path="boards/lpc845breakout/driver_examples/ctimer/simple_pwm">
+          <external path="boards/lpc845breakout/driver_examples/ctimer/simple_pwm" type="xml">
+            <files mask="ctimer_pwm_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_ctimer_pwm_interrupt_example" name="ctimer_pwm_interrupt_example" brief="The Simple PWM Interrupt project is to demonstrate usage of the SDK CTimer driver as a PWM with interrupt callback functionsIn this example an IO pin connected to the LED is used as a PWM output line to generate a PWM signal.With an interrupt callback the PWM duty cycle is changed frequently in such a way that the LED brightness can be varied." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/ctimer" path="boards/lpc845breakout/driver_examples/ctimer/simple_pwm_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/ctimer/simple_pwm_interrupt" type="xml">
+            <files mask="ctimer_pwm_interrupt_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_channel_chain" name="dma_channel_chain" brief="The DMA channel chain example is a simple demonstration program that uses the SDK software.The purpose of this example is to show how to use the DMA channel chain feature." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/channel_chain">
+          <external path="boards/lpc845breakout/driver_examples/dma/channel_chain" type="xml">
+            <files mask="dma_channel_chain.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_interleave_transfer" name="dma_interleave_transfer" brief="The DMA interleave transfer example is a simple demonstration program that uses the SDK software.It executes a linked transfer from source buffer to destination buffer using the SDK DMA drivers.The purpose of this example is to show how to use the DMA interleave feature." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/interleave_transfer">
+          <external path="boards/lpc845breakout/driver_examples/dma/interleave_transfer" type="xml">
+            <files mask="dma_interleave_transfer.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_linked_transfer" name="dma_linked_transfer" brief="The DMA linked transfer example is a simple demonstration program that uses the SDK software.It executes a linked transfer from source buffer to destination buffer using the SDK DMA drivers.The purpose of this example is to show how to use the DMA and to provide a linked trnasfer example." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/linked_transfer">
+          <external path="boards/lpc845breakout/driver_examples/dma/linked_transfer" type="xml">
+            <files mask="dma_linked_transfer.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_m2m_polling" name="dma_m2m_polling" brief="The DMA memory to memory example is a simple demonstration program that uses the SDK software.It executes one shot polling transfer from source buffer to destination buffer using the SDK DMA drivers.The purpose of this example is to show how to use the DMA and to provide a simple example for debugging and further development." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/m2m_polling">
+          <external path="boards/lpc845breakout/driver_examples/dma/m2m_polling" type="xml">
+            <files mask="dma_m2m_polling.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_memory_to_memory" name="dma_memory_to_memory" brief="The DMA memory to memory example is a simple demonstration program that uses the SDK software.It executes one shot transfer from source buffer to destination buffer using the SDK DMA drivers.The purpose of this example is to show how to use the DMA and to provide a simple example fordebugging and further development." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/memory_to_memory">
+          <external path="boards/lpc845breakout/driver_examples/dma/memory_to_memory" type="xml">
+            <files mask="dma_memory_to_memory.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_dma_wrap_transfer" name="dma_wrap_transfer" brief="The DMA wrap transfer example is a simple demonstration program that uses the SDK software.It executes a wrap transfer from source buffer to destination buffer using the SDK DMA drivers.The purpose of this example is to show how to use the DMA wrap feature." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dma" path="boards/lpc845breakout/driver_examples/dma/wrap_transfer">
+          <external path="boards/lpc845breakout/driver_examples/dma/wrap_transfer" type="xml">
+            <files mask="dma_wrap_transfer.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_gpio_led_output" name="gpio_led_output" brief="The GPIO Example project is a demonstration program that uses the KSDK software to manipulate the general-purposeoutputs. The example use LEDs and buttons to demonstrates GPIO API for port and pin manipulation (init, set,clear, and toggle)." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/gpio" path="boards/lpc845breakout/driver_examples/gpio/led_output">
+          <external path="boards/lpc845breakout/driver_examples/gpio/led_output" type="xml">
+            <files mask="gpio_led_output.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_hello_world" name="hello_world" brief="The Hello World demo application provides a sanity check for the new SDK build environments and board bring up. The HelloWorld demo prints the &quot;Hello World&quot; string to the terminal using the SDK UART drivers. The purpose of this demo is toshow how to use the UART, and to provide a simple project for debugging and further development." toolchain="mcuxpresso" compiler="compiler_gcc" category="demo_apps" path="boards/lpc845breakout/demo_apps/hello_world">
+          <external path="boards/lpc845breakout/demo_apps/hello_world" type="xml">
+            <files mask="hello_world.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_iap_basic" name="iap_basic" brief="The IAP project is a simple demonstration program of the SDK IAP driver. It reads part id, boot code version, unique id and reinvoke ISP. A message a printed on the UART terminal as various bascial iap operations are performed." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples" path="boards/lpc845breakout/driver_examples/iap/iap_basic">
+          <external path="boards/lpc845breakout/driver_examples/iap/iap_basic" type="xml">
+            <files mask="iap_basic.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_iap_faim" name="iap_faim" brief="The IAP FAIM project is a simple demonstration program of the SDK IAP driver. It writes and reads the FAIM page. A message a printed on the UART terminal as FAIM read and write operations are performed." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples" path="boards/lpc845breakout/driver_examples/iap/iap_faim">
+          <external path="boards/lpc845breakout/driver_examples/iap/iap_faim" type="xml">
+            <files mask="iap_faim.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_iap_flash" name="iap_flash" brief="The IAP Flash project is a simple demonstration program of the SDK IAP driver. It erases and programs a portion of on-chip flash memory. A message a printed on the UART terminal as various operations on flash memory are performed." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples" path="boards/lpc845breakout/driver_examples/iap/iap_flash">
+          <external path="boards/lpc845breakout/driver_examples/iap/iap_flash" type="xml">
+            <files mask="iap_flash.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_led_blinky" name="led_blinky" brief="The LED Blinky demo application provides a sanity check for the new SDK build environments and board bring up. The LED Blinky demo uses the systick interrupt to realize the function of timing delay. The example takes turns to shine the LED. The purpose of this demo is to provide a simple project for debugging and further development." toolchain="mcuxpresso" compiler="compiler_gcc" category="demo_apps" path="boards/lpc845breakout/demo_apps/led_blinky">
+          <external path="boards/lpc845breakout/demo_apps/led_blinky" type="xml">
+            <files mask="led_blinky.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_adc_basic" name="lpc_adc_basic" brief="The lpc_adc_basic example shows how to use LPC ADC driver in the simplest way.In this example, the internal temperature sensor is used to created the input analog signal. When user type in any key from the keyboard, the software trigger API is called to start the conversion. Then it polls the conversion sequence A's flag till the conversion is completed. When the conversion is completed, just print the conversion result to terminal.Project Information1.what are ADC conversion sequences?  A conversion sequence is a single pass through a series of A/D conversions performed on a selected set of  A/D channels. Software can set-up two independent conversion sequences, either of which can be triggered   by software or by a transition on one of the hardware triggers. Each sequence can be triggered by a different   hardware trigger. One of these conversion sequences is referred to as the A sequence and the other as the B  sequence. It is not necessary to employ both sequences. An optional single-step mode allows advancing through  the channels of a sequence one at a time on each successive occurrence of a trigger. The user can select whether  a trigger on the B sequence can interrupt an already-in-progress A sequence. The B sequence, however, can never be  interrupted by an A trigger.  2. How to use software-triggered conversion?   There are two ways that software can trigger a conversion sequence:      1. Start Bit: The first way to software-trigger an sequence is by setting the START bit in         the corresponding SEQn_CTRL register. The response to this is identical to         occurrence of a hardware trigger on that sequence. Specifically, one cycle of         conversions through that conversion sequence will be immediately triggered except         as indicated above. (In this example, we use this way.)      2. Burst Mode: The other way to initiate conversions is to set the BURST bit in the         SEQn_CTRL register. As long as this bit is 1 the designated conversion sequence will         be continuously and repetitively cycled through. Any new software or hardware trigger         on this sequence will be ignored.  Program Flow1.This example demonstrates how to configure the A sequences with polling, assigning one channel with software  trigger, you can configure channel via &quot;DEMO_ADC_SAMPLE_CHANNEL_NUMBER&quot;.  2.Before configuration of the ADC begins, the ADC is put through a self-calibration cycle.    3.After ADC channels are assigned to each of the sequences, the software trigger is chosen. Setting   SEQA_CTRL_START to '1' will trigger sequence A.  4.After ADC channels are assigned to each of the sequences, if the user enters any key via terminal, software trigger will start. 5.Read the corresponding DATAVALID field with polling to judge whether the conversion completes and the result is ready.  If the result is ready, the example will printf result information to terminal." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/adc" path="boards/lpc845breakout/driver_examples/adc/lpc_adc_basic">
+          <external path="boards/lpc845breakout/driver_examples/adc/lpc_adc_basic" type="xml">
+            <files mask="lpc_adc_basic.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_adc_burst" name="lpc_adc_burst" brief="The lpc_adc_burst example shows how to use LPC ADC driver with the burst mode.In this example, the internal temperature sensor is used to created the input analog signal.When user type in any key from the keyboard, the burst mode is enabled. Then the conversion sequence A would be started automatically, till the burst would be disabled in conversion completed ISR. Project Information1.what are ADC conversion sequences?  A conversion sequence is a single pass through a series of A/D conversions performed on a selected set of  A/D channels. Software can set-up two independent conversion sequences, either of which can be triggered   by software or by a transition on one of the hardware triggers. Each sequence can be triggered by a different   hardware trigger. One of these conversion sequences is referred to as the A sequence and the other as the B  sequence. It is not necessary to employ both sequences. An optional single-step mode allows advancing through  the channels of a sequence one at a time on each successive occurrence of a trigger. The user can select whether  a trigger on the B sequence can interrupt an already-in-progress A sequence. The B sequence, however, can never be  interrupted by an A trigger.  2. How to use software-triggered conversion?   There are two ways that software can trigger a conversion sequence:      1. Start Bit: The first way to software-trigger an sequence is by setting the START bit in         the corresponding SEQn_CTRL register. The response to this is identical to         occurrence of a hardware trigger on that sequence. Specifically, one cycle of         conversions through that conversion sequence will be immediately triggered except         as indicated above.       2. Burst Mode: The other way to initiate conversions is to set the BURST bit in the         SEQn_CTRL register. As long as this bit is 1 the designated conversion sequence will         be continuously and repetitively cycled through. Any new software or hardware trigger         on this sequence will be ignored. (In this example, we use this way.)         3. What kinds of interrupt do ADC have?   There are four interrupts that can be generated by the ADC:     • Conversion-Complete or Sequence-Complete interrupts for sequences A and B     • Threshold-Compare Out-of-Range Interrupt     • Data Overrun Interrupt   Any of these interrupt requests may be individually enabled or disabled in the INTEN register.  Program Flow1.This example demonstrates how to configure the A sequences with burst mode, you can configure channel via   &quot;DEMO_ADC_SAMPLE_CHANNEL_NUMBER&quot;.  2.Before configuration of the ADC begins, the ADC is put through a self-calibration cycle.  3.Enable the Conversion-Complete or Sequence-Complete interrupt for sequences A.  4.After ADC channels are assigned to each of the sequences, if the user enters any key via terminal, burst mode will start.    5.When the first conversion completes, the interrupt would be triggered. The ISR will stop the burst mode and print conversion result   to terminal." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/adc" path="boards/lpc845breakout/driver_examples/adc/lpc_adc_burst">
+          <external path="boards/lpc845breakout/driver_examples/adc/lpc_adc_burst" type="xml">
+            <files mask="lpc_adc_burst.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_adc_dma" name="lpc_adc_dma" brief="The lpc_adc_dma example shows how to use LPC ADC driver with DMA.In this example, the internal temperature sensor is used to created the input analog signal. When user type in any key from the keyboard, the software trigger API is called to start the conversion. When the ADC conversion is completed, it would trigger the DMA to move the ADC conversion result from ADC conversion data register to user indicated memory. Then the main loop waits for the transfer to be done and print the result to terminal.Project Information1.what are ADC conversion sequences?  A conversion sequence is a single pass through a series of A/D conversions performed on a selected set of  A/D channels. Software can set-up two independent conversion sequences, either of which can be triggered   by software or by a transition on one of the hardware triggers. Each sequence can be triggered by a different   hardware trigger. One of these conversion sequences is referred to as the A sequence and the other as the B  sequence. It is not necessary to employ both sequences. An optional single-step mode allows advancing through  the channels of a sequence one at a time on each successive occurrence of a trigger. The user can select whether  a trigger on the B sequence can interrupt an already-in-progress A sequence. The B sequence, however, can never be  interrupted by an A trigger.  2. How to use software-triggered conversion?   There are two ways that software can trigger a conversion sequence:      1. Start Bit: The first way to software-trigger an sequence is by setting the START bit in         the corresponding SEQn_CTRL register. The response to this is identical to         occurrence of a hardware trigger on that sequence. Specifically, one cycle of         conversions through that conversion sequence will be immediately triggered except         as indicated above. (In this example, we use this way.)      2. Burst Mode: The other way to initiate conversions is to set the BURST bit in the         SEQn_CTRL register. As long as this bit is 1 the designated conversion sequence will         be continuously and repetitively cycled through. Any new software or hardware trigger         on this sequence will be ignored.          3. How to use DMA to work with ADC?   The sequence-A or sequence-B conversion/sequence-complete interrupts may also be   used to generate a DMA trigger. To trigger a DMA transfer, the same conditions must be   met as the conditions for generating an interrupt.   Remark: If the DMA is used, the ADC interrupt must be disabled in the NVIC.   Program Flow1.This example demonstrates how to configure the A sequences with interrupt, assigning one channel with software  trigger, you can configure channel via &quot;DEMO_ADC_SAMPLE_CHANNEL_NUMBER&quot;.  2.Before configuration of the ADC begins, the ADC is put through a self-calibration cycle.  3.Configure the DMA and DMAMUX to work with ADC sequences.4.Enable the Conversion-Complete or Sequence-Complete DMA for sequences A.  5.After ADC channels are assigned to each of the sequences, if the user enters any key via terminal, software trigger will start.    6.When the conversion completes, the DMA would be requested.7.When the DMA transfer completes, DMA will trigger a interrupt. ISR would set the &quot;bDmaTransferDone&quot; to 'true'. Then main function will   print conversion result to terminal." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/adc" path="boards/lpc845breakout/driver_examples/adc/lpc_adc_dma">
+          <external path="boards/lpc845breakout/driver_examples/adc/lpc_adc_dma" type="xml">
+            <files mask="lpc_adc_dma.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_adc_interrupt" name="lpc_adc_interrupt" brief="The lpc_adc_interrupt example shows how to use interrupt with LPC ADC driver.In this example, the internal temperature sensor is used to created the input analog signal. When user type in any key from the keyboard, the software trigger API is called to start the conversion. Then it polls the flag variable which would be asserted when the conversion completed ISR is executed. Then just print the conversion result to terminal.Project Information1.what are ADC conversion sequences?  A conversion sequence is a single pass through a series of A/D conversions performed on a selected set of  A/D channels. Software can set-up two independent conversion sequences, either of which can be triggered   by software or by a transition on one of the hardware triggers. Each sequence can be triggered by a different   hardware trigger. One of these conversion sequences is referred to as the A sequence and the other as the B  sequence. It is not necessary to employ both sequences. An optional single-step mode allows advancing through  the channels of a sequence one at a time on each successive occurrence of a trigger. The user can select whether  a trigger on the B sequence can interrupt an already-in-progress A sequence. The B sequence, however, can never be  interrupted by an A trigger.  2. How to use software-triggered conversion?   There are two ways that software can trigger a conversion sequence:      1. Start Bit: The first way to software-trigger an sequence is by setting the START bit in         the corresponding SEQn_CTRL register. The response to this is identical to         occurrence of a hardware trigger on that sequence. Specifically, one cycle of         conversions through that conversion sequence will be immediately triggered except         as indicated above. (In this example, we use this way.)      2. Burst Mode: The other way to initiate conversions is to set the BURST bit in the         SEQn_CTRL register. As long as this bit is 1 the designated conversion sequence will         be continuously and repetitively cycled through. Any new software or hardware trigger         on this sequence will be ignored.          3. What kinds of interrupt do ADC have?   There are four interrupts that can be generated by the ADC:     • Conversion-Complete or Sequence-Complete interrupts for sequences A and B     • Threshold-Compare Out-of-Range Interrupt     • Data Overrun Interrupt   Any of these interrupt requests may be individually enabled or disabled in the INTEN register.  Program Flow1.This example demonstrates how to configure the A sequences with interrupt, assigning one channel with software  trigger, you can configure channel via &quot;DEMO_ADC_SAMPLE_CHANNEL_NUMBER&quot;.  2.Before configuration of the ADC begins, the ADC is put through a self-calibration cycle.  3.Enable the Conversion-Complete or Sequence-Complete interrupt for sequences A.  4.After ADC channels are assigned to each of the sequences, if the user enters any key via terminal, software trigger will start.    5.When the conversion completes, the interrupt would be triggered. The ISR will print conversion result to terminal." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/adc" path="boards/lpc845breakout/driver_examples/adc/lpc_adc_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/adc/lpc_adc_interrupt" type="xml">
+            <files mask="lpc_adc_interrupt.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_dac_basic" name="lpc_dac_basic" brief="The dac_basic example shows how to use DAC module simply as the general DAC converter.When the DAC's double-buffer feature is not enabled, the CR register is used as the DAC output data register directly.The converter would always output the value of the CR register. In this example, it gets the value from terminal,outputs the DAC output voltage through DAC output pin." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dac" path="boards/lpc845breakout/driver_examples/dac/lpc_dac_basic">
+          <external path="boards/lpc845breakout/driver_examples/dac/lpc_dac_basic" type="xml">
+            <files mask="lpc_dac_basic.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_dac_dma" name="lpc_dac_dma" brief="The dac_dma example shows how to use DAC with dma and produce an arbitrary, user-defined waveform ofselectable frequency.The output can be observed with an oscilloscope. When the DAC's double-buffer feature is enabled, any write to the CR register will only load the pre-buffer, whichshares its register address with the CR register. The CR itself will be loaded from the pre-buffer whenever the counter reaches zero and the DMA request would be raised. At the same time the counter is reloaded with the COUNTVALregister value. user-defined waveform array would be transfered to pre-buffer in order by DMA." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dac" path="boards/lpc845breakout/driver_examples/dac/lpc_dac_dma">
+          <external path="boards/lpc845breakout/driver_examples/dac/lpc_dac_dma" type="xml">
+            <files mask="lpc_dac_dma.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_lpc_dac_interrupt" name="lpc_dac_interrupt" brief="The dac_interrupt example shows how to use DAC with interrupts and produce an arbitrary, user-defined waveform ofselectable frequency.The output can be observed with an oscilloscope. When the DAC's double-buffer feature is enabled, any write to the CR register will only load the pre-buffer, whichshares its register address with the CR register. The CR itself will be loaded from the pre-buffer whenever the counter reaches zero and the interrupt would occur. At the same time the counter is reloaded with the COUNTVALregister value. In the DAC ISR, user-defined waveform array would be transfered to pre-buffer in order." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/dac" path="boards/lpc845breakout/driver_examples/dac/lpc_dac_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/dac/lpc_dac_interrupt" type="xml">
+            <files mask="lpc_dac_interrupt.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_mrt_example" name="mrt_example" brief="The MRT project is a simple demonstration program of the SDK MRT driver. It sets up the MRThardware block to trigger a periodic interrupt after every 250 milliseconds. When the PIT interrupt is triggereda message a printed on the UART terminal and an LED is toggled on the board." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/mrt" path="boards/lpc845breakout/driver_examples/mrt">
+          <external path="boards/lpc845breakout/driver_examples/mrt" type="xml">
+            <files mask="mrt_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_pint_pattern_match" name="pint_pattern_match" brief="This example shows how to use SDK drivers to use the Pin interrupt &amp; pattern match peripheral." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/pint" path="boards/lpc845breakout/driver_examples/pint/pattern_match">
+          <external path="boards/lpc845breakout/driver_examples/pint/pattern_match" type="xml">
+            <files mask="pint_pattern_match.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_pint_pin_interrupt" name="pint_pin_interrupt" brief="This example shows how to use SDK drivers to use the Pin interrupt &amp; pattern match peripheral." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/pint" path="boards/lpc845breakout/driver_examples/pint/pin_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/pint/pin_interrupt" type="xml">
+            <files mask="pint_pin_interrupt.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_power_mode_switch_lpc" name="power_mode_switch_lpc" brief="The power_mode_switch application shows the usage of normal power mode control APIs for entering the three kinds oflow power mode: Sleep mode, Deep Sleep mode and Power Down mode, deep power down mode. When the application runs to each low powermode, the device would cut off the power for specific modules to save energy. The device can be also waken up by prepared wakeup source from external event. Tips: This demo is to show how the various power mode can switch to each other. However, in actual low power use case, to save energy and reduce the consumption even more, many things can be done including: - Disable the clock for unnecessary module during low power mode. That means, programmer can disable the clocks before entering the low power mode and re-enable them after exiting the low power mode when necessary. - Disable the function for unnecessary part of a module when other part would keep working in low power mode. At the most time, more powerful function means more power consumption. For example, disable the digital function for the unnecessary pin mux, and so on. - Set the proper pin state (direction and logic level) according to the actual application hardware. Otherwise, the pin cirrent would be activied unexpectedly waste some energy. - Other low power consideration based on the actual application hardware. - In order to meet typedef power consumption of DateSheet manual, Please configure MCU under the following conditions.     鈥? Configure all pins as GPIO with pull-up resistor disabled in the IOCON block.     鈥? Configure GPIO pins as outputs using the GPIO DIR register.     鈥?Write 1 to the GPIO CLR register to drive the outputs LOW.     鈥?All peripherals disabled." toolchain="mcuxpresso" compiler="compiler_gcc" category="demo_apps" path="boards/lpc845breakout/demo_apps/power_mode_switch_lpc">
+          <external path="boards/lpc845breakout/demo_apps/power_mode_switch_lpc" type="xml">
+            <files mask="power_mode_switch_lpc.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_sctimer_16bit_counter" name="sctimer_16bit_counter" brief="The SCTimer 16-bit counter project is a demonstration program of the SDK SCTimer driver operation when using the SCTimer counteras two 16-bit counters.The example toggles an output per counter when a match occurs." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/sctimer" path="boards/lpc845breakout/driver_examples/sctimer/16bit_counter">
+          <external path="boards/lpc845breakout/driver_examples/sctimer/16bit_counter" type="xml">
+            <files mask="sctimer_16bit_counter.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_sctimer_multi_state_pwm" name="sctimer_multi_state_pwm" brief="The SCTImer multi-state project is a demonstration program of the SCTimer state machine. It shows how to set up events to be triggered in a certain stateand transitioning between states.State 0 has 2 events that generate a PWM signal, it also has an event linked to an input signal to transition to State 1.State 1 has 4 events that generate 2 PWM signals, it also has an event linked to an input signal to transition to State 0." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/sctimer" path="boards/lpc845breakout/driver_examples/sctimer/multi_state_pwm">
+          <external path="boards/lpc845breakout/driver_examples/sctimer/multi_state_pwm" type="xml">
+            <files mask="sctimer_multi_state_pwm.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_sctimer_pwm_with_dutycyle_change" name="sctimer_pwm_with_dutycyle_change" brief="This SCTIMer project is a demonstration program of the SDK SCTimer driver's PWM generation. It sets up a PWM signaland periodically updates the PWM signals dutycycle." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/sctimer" path="boards/lpc845breakout/driver_examples/sctimer/pwm_with_dutycyle_change">
+          <external path="boards/lpc845breakout/driver_examples/sctimer/pwm_with_dutycyle_change" type="xml">
+            <files mask="sctimer_pwm_with_dutycyle_change.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_sctimer_simple_pwm" name="sctimer_simple_pwm" brief="The SCTimer project is a simple demonstration program of the SDK SCTimer's driver capabiltiy to generate PWM signals." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/sctimer" path="boards/lpc845breakout/driver_examples/sctimer/simple_pwm">
+          <external path="boards/lpc845breakout/driver_examples/sctimer/simple_pwm" type="xml">
+            <files mask="sctimer_simple_pwm.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_interrupt_master" name="spi_interrupt_master" brief="The spi_interrupt_master example shows how to use spi functional API to do interrupt transfer as a master:In this example, the spi instance as master. Master sends a piece of data to slave, receive data from slave,and check if the data master received is correct. This example needs to work with spi_interrupt_slave example. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/interrupt/master">
+          <external path="boards/lpc845breakout/driver_examples/spi/interrupt/master" type="xml">
+            <files mask="spi_interrupt_master.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_interrupt_slave" name="spi_interrupt_slave" brief="The spi_interrupt_slave example shows how to use spi driver as slave to receive data from master.In this example, one spi instance as slave and another spi instance on other board as master. Master sends a piece of data to slave, and receive a piece of data from slave. This example checks if the data received from master is correct. This example should work with spi_interrupt_master example. And this example should start first. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/interrupt/slave">
+          <external path="boards/lpc845breakout/driver_examples/spi/interrupt/slave" type="xml">
+            <files mask="spi_interrupt_slave.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_polling_master" name="spi_polling_master" brief="The spi_polling_transfer_master example shows how to use spi driver as master to do board to boardtransfer with polling:In this example, one spi instance as master and another spi instance on othere board as slave. Mastersends a piece of data to slave, and receive a piece of data from slave. This example checks if the data received from slave is correct. This example need to work with spi_polling_transfer_slave example. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/polling/master">
+          <external path="boards/lpc845breakout/driver_examples/spi/polling/master" type="xml">
+            <files mask="spi_polling_master.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_polling_slave" name="spi_polling_slave" brief="The spi_polling_transfer_slave example shows how to use spi driver as slave to receive data from master.In this example, one spi instance as slave and another spi instance on other board as master. Master sends a piece of data to slave, and receive a piece of data from slave. This example checks if the data received from master is correct. This example should work with spi_polling_transfer_master example. And this example should start first." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/polling/slave">
+          <external path="boards/lpc845breakout/driver_examples/spi/polling/slave" type="xml">
+            <files mask="spi_polling_slave.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_transfer_dma_master" name="spi_transfer_dma_master" brief="The spi_dma_transfer_master example shows how to use driver API to transfer in DMA way.  In this example, one spi instance as master and another spi instance on the other board as slave. Master sends a piece of data to slave, and receive a piece of data from slave. This example checksif the data received from slave is correct. This example needs to work with spi_dma_transfer_slave example. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/transfer_dma/master">
+          <external path="boards/lpc845breakout/driver_examples/spi/transfer_dma/master" type="xml">
+            <files mask="spi_transfer_dma_master.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_transfer_dma_slave" name="spi_transfer_dma_slave" brief="The spi_dma_transfer_slave example shows how to use driver API to transfer in DMA way.  In this example, one spi instance as master and another spi instance on the other board as slave. Master sends a piece of data to slave, and receive a piece of data from slave. This example checksif the data received from slave is correct. This example needs to work with spi_dma_transfer_master example. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/transfer_dma/slave">
+          <external path="boards/lpc845breakout/driver_examples/spi/transfer_dma/slave" type="xml">
+            <files mask="spi_transfer_dma_slave.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_transfer_interrupt_master" name="spi_transfer_interrupt_master" brief="The spi_interrupt_transfer_master example shows how to use spi driver as master to do board to boardtransfer in interrupt way:In this example, one spi instance as master and another spi instance on othere board as slave. Mastersends a piece of data to slave, and receive a piece of data from slave. This example checks if the data received from slave is correct. This example need to work with spi_interrupt_transfer_slave example. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/transfer_interrupt/master">
+          <external path="boards/lpc845breakout/driver_examples/spi/transfer_interrupt/master" type="xml">
+            <files mask="spi_transfer_interrupt_master.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_spi_transfer_interrupt_slave" name="spi_transfer_interrupt_slave" brief="The spi_interrupt_transfer_slave example shows how to use spi driver as slave to receive data from master.In this example, one spi instance as slave and another spi instance on other board as master. Master sends a piece of data to slave, and receive a piece of data from slave. This example checks if the data received from master is correct. This example should work with spi_interrupt_transfer_master example. And this example should start first. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/spi" path="boards/lpc845breakout/driver_examples/spi/transfer_interrupt/slave">
+          <external path="boards/lpc845breakout/driver_examples/spi/transfer_interrupt/slave" type="xml">
+            <files mask="spi_transfer_interrupt_slave.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_polling_example" name="usart_polling_example" brief="The uart_polling example shows how to use uart driver in polling way:In this example, one uart instance connect to PC, the board will send back all characters that PCsend to the board. " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/polling">
+          <external path="boards/lpc845breakout/driver_examples/usart/polling" type="xml">
+            <files mask="usart_polling_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_terminal" name="usart_terminal" brief="This example demonstrate configuration and use of the USART module in interrupt-driven &#10;asynchronous mode on communication with a terminal emulator calling the USART &#10;transactional APIs. USART will echo back every character to terminal emulator, and send&#10;back all received characters once users press [Enter] key.&#10;" toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/terminal">
+          <external path="boards/lpc845breakout/driver_examples/usart/terminal" type="xml">
+            <files mask="usart_terminal.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_transfer_dma" name="usart_transfer_dma" brief="This example shows how to use the DMA driver to implement a double buffer receive scheme from the USART The example shows the double buffer constructed using two descriptors (g_pingpong_desc). These descriptors are cycled from one to the other.Things to note- The descriptors of the ping pong transfer need to be aligned to size 16- The initial transfer will perform the same job as first descriptor of ping pong, so the first linkeage   is to go to g_pingpong_desc[1]- g_pingpong_desc[1] then chains the g_pingpong_desc[0] as the next descriptor- The properties are set up such that g_pingpong_desc[0] (and the initial configuration uses INTA to signal  back to the callback)- g_pingpong_desc[1] uses INTB to signal to the callback- The scheduled callback uses this information to know which data was last writtenA note on Performance The intent of this example is to illustrate how a double-buffer scheme can be implemented using the dma. The performance of this example will be limited to how quickly the echo printer can read-out the data from the ping pong buffer and display it. This means that the example will work well if characters are entered at a rate where the DMA callback to echo the string can keep up with the input stream. Connecting the USARTRX to a continuous fast speed will cause the DMA to fall behind.  " toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/transfer_dma">
+          <external path="boards/lpc845breakout/driver_examples/usart/transfer_dma" type="xml">
+            <files mask="usart_transfer_dma.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_transfer_interrupt" name="usart_transfer_interrupt" brief="usart_transfer_interrupt" toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/transfer_interrupt">
+          <external path="boards/lpc845breakout/driver_examples/usart/transfer_interrupt" type="xml">
+            <files mask="usart_transfer_interrupt.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_transfer_ring_buffer" name="usart_transfer_ring_buffer" brief="The usart_interrupt_rb_transfer example shows how to use usart driver in interrupt way withRX ring buffer enabled.In this example, one uart instance connect to PC through, the board will send back all charactersthat PC send to the board.Note: The example echo every 8 characters." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/transfer_ring_buffer">
+          <external path="boards/lpc845breakout/driver_examples/usart/transfer_ring_buffer" type="xml">
+            <files mask="usart_transfer_ring_buffer.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_usart_transfer_sync_mode" name="usart_transfer_sync_mode" brief="The usart_interrupt_sync_transfer example shows how to use usart API in synchronous mode:In this example, one usart instance will be selected as master ,and another as slave. The master will send data to slave in polling way, and slave will receive data in nonblocking way.After all data has been received by slave, info will be printed by debug console." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/usart" path="boards/lpc845breakout/driver_examples/usart/transfer_sync_mode">
+          <external path="boards/lpc845breakout/driver_examples/usart/transfer_sync_mode" type="xml">
+            <files mask="usart_transfer_sync_mode.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_wkt_example" name="wkt_example" brief="The WKT project is a simple demonstration program of the SDK WKT driver. It sets up the WKT hardware block to trigger a periodic interrupt after loading a counter value and counting down to 0. When the WKT interrupt is triggered a message printed on the UART terminal and the LED is toggled on the board.Depending on the clock source, the WKT can be used for waking up the part from any low power mode or for general-purposetiming." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/wkt" path="boards/lpc845breakout/driver_examples/wkt">
+          <external path="boards/lpc845breakout/driver_examples/wkt" type="xml">
+            <files mask="wkt_example.xml"/>
+          </external>
+        </example>
+        <example id="lpc845breakout_wwdt_example" name="wwdt_example" brief="The WDOG Example project is to demonstrate usage of the KSDK wdog driver.In this example,quick test is first implemented to test the wdog.And then after 5 times of refreshing the watchdog, a timeout reset is generated." toolchain="mcuxpresso" compiler="compiler_gcc" category="driver_examples/wwdt" path="boards/lpc845breakout/driver_examples/wwdt">
+          <external path="boards/lpc845breakout/driver_examples/wwdt" type="xml">
+            <files mask="wwdt_example.xml"/>
+          </external>
+        </example>
+      </examples>
+    </board>
+  </boards>
+  <devices>
+    <device id="LPC845" name="LPC845" href="http://www.nxp.com/lpc" version="1.0.0" full_name="LPC845" family="LPC84x" platform="LPC">
+      <description>The LPC84x are ARM Cortex-M0+ based microcontrollers for embedded applications.</description>
+      <image path="docs/images" type="image">
+        <files mask="device.jpg"/>
+      </image>
+      <metadataSet>
+        <metadata key="html">
+          <specific>
+            <content>The LPC84x are an ARM Cortex-M0+ based, low-cost 32-bit MCU family operating at CPU frequencies of up to 30 MHz. The LPC84x support up to 64 KB of flash memory and 16 KB of SRAM.The peripheral complement of the LPC84x includes a CRC engine, four I2C-bus interfaces, up to five USARTs, up to two SPI interfaces, Capacitive Touch Interface (Cap Touch), one multi-rate timer, self-wake-up timer, SCTimer/PWM, one general purpose 32-bit counter/timer, a DMA, one 12-bit ADC, two 10-bit DACs, one analog comparator,function-configurable I/O ports through a switch matrix, an input pattern match engine,and up to 54 general-purpose I/O pins.</content>
+          </specific>
+        </metadata>
+        <metadata key="vendor" value="NXP"/>
+      </metadataSet>
+      <core id="core0_LPC845" name="core0" fpu="false" type="cm0plus"/>
+      <memory>
+        <memoryBlock id="PROGRAM_FLASH_LPC845" name="PROGRAM_FLASH" addr="00000000" size="00010000" type="Flash" access="RO"/>
+        <memoryBlock id="SRAM_LPC845" name="SRAM" addr="10000000" size="00003fe0" type="RAM" access="RW"/>
+        <memoryBlock id="IAP_SRAM_LPC845" name="IAP_SRAM" addr="10003fe0" size="00000020" type="RAM" access="RW"/>
+      </memory>
+      <total_memory flash_size_kb="64" ram_size_kb="16"/>
+      <package id="LPC845M301JBD64" name="LPC845M301JBD64"/>
+      <package id="LPC845M301JBD48" name="LPC845M301JBD48"/>
+      <package id="LPC845M301JHI48" name="LPC845M301JHI48"/>
+      <package id="LPC845M301JHI33" name="LPC845M301JHI33"/>
+      <evaluation_boards>
+        <evaluation_board name="lpcxpresso845max"/>
+        <evaluation_board name="lpc845breakout"/>
+      </evaluation_boards>
+      <debug_configurations>
+        <debug_configuration id_refs="com.crt.advproject.config.exe.debug com.crt.advproject.config.exe.release">
+          <params>
+            <params id="internal.wiretype.release.LPC845" name="internal.wiretype" value="SWD"/>
+            <params id="internal.has_swo.release.LPC845" name="internal.has_swo" value="false"/>
+            <params id="vector.catch.release.LPC845" name="vector.catch" value="true"/>
+          </params>
+          <drivers>
+            <driver id_refs="PROGRAM_FLASH_LPC845">
+              <driverBinary type="binary">
+                <files mask="LPC84x_64.cfx"/>
+              </driverBinary>
+            </driver>
+          </drivers>
+        </debug_configuration>
+      </debug_configurations>
+      <linkerSettings nature="c_nature">
+        <linker property="start_symbol" value="ResetISR"/>
+        <linker property="text_align" value="4"/>
+        <linker property="data_align" value="4"/>
+        <linker property="bss_align" value="4"/>
+        <linker property="mtb_supported" value="true"/>
+        <linker property="crp_address" value="0x2fc"/>
+      </linkerSettings>
+      <linkerSettings nature="cpp_nature">
+        <linker property="start_symbol" value="ResetISR"/>
+        <linker property="text_align" value="4"/>
+        <linker property="data_align" value="4"/>
+        <linker property="bss_align" value="4"/>
+        <linker property="mtb_supported" value="true"/>
+        <linker property="crp_address" value="0x2fc"/>
+      </linkerSettings>
+    </device>
+  </devices>
+  <components>
+    <component id="project_template.lpc845breakout.LPC845" name="lpc845breakout" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" category="Board Support/SDK Project Template" user_visible="true" type="project_template">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.lpc_miniusart.LPC845"/>
+          <component_dependency value="component.miniusart_adapter.LPC845"/>
+          <component_dependency value="platform.drivers.power_no_lib.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_gpio.LPC845"/>
+          <component_dependency value="utility.debug_console_lite.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_iocon_lite.LPC845"/>
+          <component_dependency value="platform.drivers.reset.LPC845"/>
+          <component_dependency value="platform.drivers.clock.LPC845"/>
+          <component_dependency value="device.LPC845_startup.LPC845"/>
+          <component_dependency value="platform.drivers.swm.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="boards/lpc845breakout/project_template" target_path="board" type="src">
+        <files mask="board.c"/>
+        <files mask="clock_config.c"/>
+        <files mask="peripherals.c"/>
+        <files mask="pin_mux.c"/>
+      </source>
+      <source path="boards/lpc845breakout/project_template" target_path="board" type="c_include">
+        <files mask="board.h"/>
+        <files mask="clock_config.h"/>
+        <files mask="peripherals.h"/>
+        <files mask="pin_mux.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS.LPC845" name="CMSIS" version="5.5.1" devices="LPC845" user_visible="true" type="CMSIS">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.Include_common.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.CAN_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.Flash_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.I2C_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.MCI_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.NAND_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.SAI_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.SPI_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.USART_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.USB_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.CMSIS_Driver_Include.WiFi_CMSISInclude.LPC845"/>
+          <component_dependency value="platform.Include_dsp.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="CMSIS/Include" target_path="Include" type="c_include">
+        <files mask="arm_common_tables.h"/>
+        <files mask="arm_const_structs.h"/>
+        <files mask="arm_math.h"/>
+        <files mask="cmsis_armcc.h"/>
+        <files mask="cmsis_armclang.h"/>
+        <files mask="cmsis_armclang_ltm.h"/>
+        <files mask="cmsis_compiler.h"/>
+        <files mask="cmsis_gcc.h"/>
+        <files mask="cmsis_iccarm.h"/>
+        <files mask="cmsis_version.h"/>
+        <files mask="core_armv81mml.h"/>
+        <files mask="core_armv8mbl.h"/>
+        <files mask="core_armv8mml.h"/>
+        <files mask="core_cm0.h"/>
+        <files mask="core_cm0plus.h"/>
+        <files mask="core_cm1.h"/>
+        <files mask="core_cm23.h"/>
+        <files mask="core_cm3.h"/>
+        <files mask="core_cm33.h"/>
+        <files mask="core_cm35p.h"/>
+        <files mask="core_cm4.h"/>
+        <files mask="core_cm7.h"/>
+        <files mask="core_dsp.h"/>
+        <files mask="core_sc000.h"/>
+        <files mask="core_sc300.h"/>
+        <files mask="mpu_armv7.h"/>
+        <files mask="mpu_armv8.h"/>
+        <files mask="tz_context.h"/>
+      </source>
+      <source path="CMSIS" target_path="CMSIS" type="doc">
+        <files mask="LICENSE.txt"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver" name="CMSIS_Driver" version="2.7.0" user_visible="true" type="CMSIS">
+      <source path="CMSIS/Driver/DriverTemplates" target_path="Driver/DriverTemplates" type="src">
+        <files mask="Driver_CAN.c"/>
+        <files mask="Driver_ETH_MAC.c"/>
+        <files mask="Driver_ETH_PHY.c"/>
+        <files mask="Driver_Flash.c"/>
+        <files mask="Driver_I2C.c"/>
+        <files mask="Driver_MCI.c"/>
+        <files mask="Driver_SAI.c"/>
+        <files mask="Driver_SPI.c"/>
+        <files mask="Driver_Storage.c"/>
+        <files mask="Driver_USART.c"/>
+        <files mask="Driver_USBD.c"/>
+        <files mask="Driver_USBH.c"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.CAN_CMSISInclude.LPC845" name="CAN" version="1.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_CAN.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845" name="Common" version="2.7.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_Common.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.LPC845" name="Ethernet" version="2.1.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_ETH.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.Ethernet_MAC_CMSISInclude.LPC845" name="Ethernet_MAC" version="2.1.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_ETH_MAC.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.Ethernet_PHY_CMSISInclude.LPC845" name="Ethernet_PHY" version="2.1.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Ethernet_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_ETH_PHY.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.Flash_CMSISInclude.LPC845" name="Flash" version="2.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_Flash.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.I2C_CMSISInclude.LPC845" name="I2C" version="2.3.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_I2C.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.MCI_CMSISInclude.LPC845" name="MCI" version="2.3.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_MCI.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.NAND_CMSISInclude.LPC845" name="NAND" version="2.3.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_NAND.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.SAI_CMSISInclude.LPC845" name="SAI" version="1.1.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_SAI.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.SPI_CMSISInclude.LPC845" name="SPI" version="2.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_SPI.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.USART_CMSISInclude.LPC845" name="USART" version="2.3.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_USART.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.USB_CMSISInclude.LPC845" name="USB" version="2.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_USB.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.USB_Device_CMSISInclude.LPC845" name="USB_Device" version="2.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.USB_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_USBD.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.USB_Host_CMSISInclude.LPC845" name="USB_Host" version="2.2.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.USB_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_USBH.h"/>
+      </source>
+    </component>
+    <component id="platform.CMSIS_Driver_Include.WiFi_CMSISInclude.LPC845" name="WiFi" version="1.0.0" devices="LPC845" user_visible="false" type="CMSIS_driver">
+      <dependencies>
+        <component_dependency value="platform.CMSIS_Driver_Include.Common_CMSISInclude.LPC845"/>
+      </dependencies>
+      <source path="CMSIS/Driver/Include" target_path="CMSIS_driver" type="c_include">
+        <files mask="Driver_WiFi.h"/>
+      </source>
+    </component>
+    <component id="platform.Include_common.LPC845" name="CMSIS_Include_common" version="5.2.1" devices="LPC845" user_visible="true" type="CMSIS_Include">
+      <source path="CMSIS/Include" target_path="CMSIS" type="c_include">
+        <files mask="cmsis_armcc.h"/>
+        <files mask="cmsis_armclang.h"/>
+        <files mask="cmsis_armclang_ltm.h"/>
+        <files mask="cmsis_compiler.h"/>
+        <files mask="cmsis_gcc.h"/>
+        <files mask="cmsis_iccarm.h"/>
+        <files mask="cmsis_version.h"/>
+        <files mask="core_armv81mml.h"/>
+        <files mask="core_armv8mbl.h"/>
+        <files mask="core_armv8mml.h"/>
+        <files mask="mpu_armv7.h"/>
+        <files mask="mpu_armv8.h"/>
+      </source>
+    </component>
+    <component id="platform.Include_core_cm0plus.LPC845" name="CMSIS_Include_core_cm0plus" version="5.2.1" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="CMSIS_Include">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.Include_common.LPC845"/>
+          <component_dependency value="platform.Include_dsp.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="CMSIS/Include" target_path="CMSIS" type="c_include">
+        <files mask="core_cm0plus.h"/>
+      </source>
+    </component>
+    <component id="platform.Include_dsp.LPC845" name="CMSIS_Include_dsp" version="1.6.0" devices="LPC845" user_visible="true" type="CMSIS_Include">
+      <source path="CMSIS/Include" target_path="CMSIS" type="c_include">
+        <files mask="arm_common_tables.h"/>
+        <files mask="arm_const_structs.h"/>
+        <files mask="arm_math.h"/>
+      </source>
+    </component>
+    <component id="project_template.LPC845.LPC845" name="LPC845" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" category="Board Support/SDK Project Template" user_visible="true" type="project_template">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.lpc_miniusart.LPC845"/>
+          <component_dependency value="component.miniusart_adapter.LPC845"/>
+          <component_dependency value="platform.drivers.power_no_lib.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_gpio.LPC845"/>
+          <component_dependency value="device.LPC845_startup.LPC845"/>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_iocon_lite.LPC845"/>
+          <component_dependency value="utility.debug_console_lite.LPC845"/>
+          <component_dependency value="platform.drivers.clock.LPC845"/>
+          <component_dependency value="platform.drivers.reset.LPC845"/>
+          <component_dependency value="platform.drivers.swm.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/project_template" target_path="board" type="src">
+        <files mask="board.c"/>
+        <files mask="clock_config.c"/>
+        <files mask="peripherals.c"/>
+        <files mask="pin_mux.c"/>
+      </source>
+      <source path="devices/LPC845/project_template" target_path="board" type="c_include">
+        <files mask="board.h"/>
+        <files mask="clock_config.h"/>
+        <files mask="peripherals.h"/>
+        <files mask="pin_mux.h"/>
+      </source>
+    </component>
+    <component id="tools.LPC845" name="cmake_toolchain" version="1.0.0" devices="LPC845" user_visible="true" type="other">
+      <source path="tools/cmake_toolchain_files" target_path="cmake_toolchain_files" type="script">
+        <files mask="armgcc.cmake"/>
+        <files mask="armgcc_force_cpp.cmake"/>
+        <files mask="xcc.cmake"/>
+      </source>
+    </component>
+    <component id="component.button.LPC845" name="button" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.timer_manager.LPC845"/>
+          <component_dependency value="component.lpc_gpio_adapter.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/button" target_path="component/button" type="src">
+        <files mask="button.c"/>
+      </source>
+      <source path="components/button" target_path="component/button" type="c_include">
+        <files mask="button.h"/>
+      </source>
+    </component>
+    <component id="component.common_task.LPC845" name="common_task" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.osa.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/common_task" target_path="component/common_task" type="src">
+        <files mask="common_task.c"/>
+      </source>
+      <source path="components/common_task" target_path="component/common_task" type="c_include">
+        <files mask="common_task.h"/>
+      </source>
+    </component>
+    <component id="component.ctimer_adapter.LPC845" name="ctimer_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.ctimer.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/timer" target_path="component/timer" type="src">
+        <files mask="ctimer_adapter.c"/>
+      </source>
+      <source path="components/timer" target_path="component/timer" type="c_include">
+        <files mask="timer.h"/>
+      </source>
+    </component>
+    <component id="component.ecspi_adapter.LPC845" name="ecspi_adapter" version="1.0.0" devices="LPC845" user_visible="true" type="abstraction_layer">
+      <source path="components/spi" target_path="component/spi" type="src">
+        <files mask="ecspi_adapter.c"/>
+      </source>
+      <source path="components/spi" target_path="component/spi" type="c_include">
+        <files mask="spi.h"/>
+      </source>
+    </component>
+    <component id="component.led.LPC845" name="led" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.timer_manager.LPC845"/>
+          <component_dependency value="component.lpc_gpio_adapter.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/led" target_path="component/led" type="src">
+        <files mask="led.c"/>
+      </source>
+      <source path="components/led" target_path="component/led" type="c_include">
+        <files mask="led.h"/>
+      </source>
+    </component>
+    <component id="component.lists.LPC845" name="lists" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="components/lists" target_path="component/lists" type="src">
+        <files mask="generic_list.c"/>
+      </source>
+      <source path="components/lists" target_path="component/lists" type="c_include">
+        <files mask="generic_list.h"/>
+      </source>
+    </component>
+    <component id="component.lpc_crc_adapter.LPC845" name="lpc_crc_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_crc.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/crc" target_path="component/crc" type="c_include">
+        <files mask="crc.h"/>
+      </source>
+      <source path="components/crc" target_path="component/crc" type="src">
+        <files mask="lpc_crc_adapter.c"/>
+      </source>
+    </component>
+    <component id="component.lpc_gpio_adapter.LPC845" name="lpc_gpio_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.syscon.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_gpio.LPC845"/>
+          <component_dependency value="platform.drivers.inputmux.LPC845"/>
+          <component_dependency value="platform.drivers.pint.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/gpio" target_path="component/gpio" type="c_include">
+        <files mask="gpio.h"/>
+      </source>
+      <source path="components/gpio" target_path="component/gpio" type="src">
+        <files mask="lpc_gpio_adapter.c"/>
+      </source>
+    </component>
+    <component id="component.mem_manager.LPC845" name="mem_manager" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.lists.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/mem_manager" target_path="component/mem_manager" type="src">
+        <files mask="mem_manager.c"/>
+      </source>
+      <source path="components/mem_manager" target_path="component/mem_manager" type="c_include">
+        <files mask="mem_manager.h"/>
+      </source>
+    </component>
+    <component id="component.minispi_adapter.LPC845" name="minispi_adapter" version="1.0.0" devices="LPC845" user_visible="true" type="abstraction_layer">
+      <source path="components/spi" target_path="component/spi" type="src">
+        <files mask="minispi_adapter.c"/>
+      </source>
+      <source path="components/spi" target_path="component/spi" type="c_include">
+        <files mask="spi.h"/>
+      </source>
+    </component>
+    <component id="component.miniusart_adapter.LPC845" name="miniusart_adapter" version="1.0.0" full_name="miniusart_adapter" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="utilities">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.lpc_miniusart.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/uart" target_path="component/uart" type="src">
+        <files mask="miniusart_adapter.c"/>
+      </source>
+      <source path="components/uart" target_path="component/uart" type="c_include">
+        <files mask="uart.h"/>
+      </source>
+    </component>
+    <component id="component.mrt_adapter.LPC845" name="mrt_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.mrt.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/timer" target_path="component/timer" type="src">
+        <files mask="mrt_adapter.c"/>
+      </source>
+      <source path="components/timer" target_path="component/timer" type="c_include">
+        <files mask="timer.h"/>
+      </source>
+    </component>
+    <component id="component.osa.LPC845" name="osa" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.lists.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/osa" target_path="component/osa" type="c_include">
+        <files mask="fsl_os_abstraction.h"/>
+        <files mask="fsl_os_abstraction_config.h"/>
+      </source>
+      <source condition="middleware.baremetal.LPC845" path="components/osa" target_path="component/osa" type="src">
+        <files mask="fsl_os_abstraction_bm.c"/>
+      </source>
+      <source condition="middleware.baremetal.LPC845" path="components/osa" target_path="component/osa" type="c_include">
+        <files mask="fsl_os_abstraction_bm.h"/>
+      </source>
+    </component>
+    <component id="component.osa_bm.LPC845" name="osa_bm" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="false" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.lists.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/osa" target_path="component/osa" type="c_include">
+        <files mask="fsl_os_abstraction.h"/>
+        <files mask="fsl_os_abstraction_bm.h"/>
+        <files mask="fsl_os_abstraction_config.h"/>
+      </source>
+      <source path="components/osa" target_path="component/osa" type="src">
+        <files mask="fsl_os_abstraction_bm.c"/>
+      </source>
+    </component>
+    <component id="component.pwm_ctimer_adapter.LPC845" name="pwm_ctimer_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.ctimer.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="components/pwm" target_path="component/pwm" type="c_include">
+        <files mask="pwm.h"/>
+      </source>
+      <source path="components/pwm" target_path="component/pwm" type="src">
+        <files mask="pwm_ctimer_adapter.c"/>
+      </source>
+    </component>
+    <component id="component.software_crc_adapter.LPC845" name="software_crc_adapter" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="abstraction_layer">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="components/crc" target_path="component/crc" type="c_include">
+        <files mask="crc.h"/>
+      </source>
+      <source path="components/crc" target_path="component/crc" type="src">
+        <files mask="software_crc_adapter.c"/>
+      </source>
+    </component>
+    <component id="component.timer_manager.LPC845" name="timer_manager" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="software_component">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="component.lists.LPC845"/>
+          <any_of>
+            <component_dependency value="component.ctimer_adapter.LPC845"/>
+            <component_dependency value="component.mrt_adapter.LPC845"/>
+          </any_of>
+        </all>
+      </dependencies>
+      <source path="components/timer_manager" target_path="component/timer_manager" type="src">
+        <files mask="timer_manager.c"/>
+      </source>
+      <source path="components/timer_manager" target_path="component/timer_manager" type="c_include">
+        <files mask="timer_manager.h"/>
+      </source>
+    </component>
+    <component id="component.vspi_adapter.LPC845" name="vspi_adapter" version="1.0.0" devices="LPC845" user_visible="true" type="abstraction_layer">
+      <source path="components/spi" target_path="component/spi" type="c_include">
+        <files mask="spi.h"/>
+      </source>
+      <source path="components/spi" target_path="component/spi" type="src">
+        <files mask="vspi_adapter.c"/>
+      </source>
+    </component>
+    <component id="device.LPC845_CMSIS.LPC845" name="LPC845_CMSIS" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="CMSIS_Include">
+      <dependencies>
+        <component_dependency value="platform.Include_core_cm0plus.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845" target_path="device" type="c_include">
+        <files mask="LPC845.h"/>
+        <files mask="LPC845_features.h"/>
+        <files mask="fsl_device_registers.h"/>
+      </source>
+    </component>
+    <component id="device.LPC845_debugger.LPC845" name="LPC845_debugger" version="1.0.0" devices="LPC845" user_visible="true" type="debugger">
+      <source path="devices/LPC845" target_path="LPC845" type="xml">
+        <files mask="LPC845.xml"/>
+      </source>
+    </component>
+    <component id="platform.devices.LPC845_linker.LPC845" name="LPC845_linker" version="1.0.0" devices="LPC845" user_visible="true" type="linker"/>
+    <component id="device.LPC845_startup.LPC845" name="LPC845_startup" version="1.0.0" devices="LPC845" category="Device/Startup" user_visible="true" type="startup">
+      <source toolchain="mcuxpresso" path="devices/LPC845/mcuxpresso" target_path="startup" type="src_c">
+        <files mask="startup_lpc845.c"/>
+      </source>
+      <source toolchain="mcuxpresso" path="devices/LPC845/mcuxpresso" target_path="startup" type="src_cpp">
+        <files mask="startup_lpc845.cpp"/>
+      </source>
+      <source path="devices/LPC845" target_path="device" type="src">
+        <files mask="system_LPC845.c"/>
+      </source>
+      <source path="devices/LPC845" target_path="device" type="c_include">
+        <files mask="system_LPC845.h"/>
+      </source>
+    </component>
+    <component id="docs.LPC845.LPC845" name="LPC845" version="1.0.0" devices="LPC845" user_visible="true" type="documentation">
+      <source path="docs" target_path="docs" type="doc">
+        <files mask="Getting Started with MCUXpresso SDK.pdf"/>
+        <files mask="MCUXpresso SDK Release Notes for LPC845BREAKOUT and LPCXpresso845MAX.pdf"/>
+      </source>
+    </component>
+    <component id="docs.images.LPC845" name="images" version="1.0.0" devices="LPC845" user_visible="true" type="documentation">
+      <source path="docs/images" target_path="images" type="image">
+        <files mask="LPC845BREAKOUT.gif"/>
+        <files mask="device.jpg"/>
+      </source>
+    </component>
+    <component id="platform.drivers.capt.LPC845" name="capt" brief="CAPT Driver" version="2.0.2" full_name="CAPT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_capt.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_capt.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.clock.LPC845" name="clock" brief="Clock Driver" version="2.1.0" full_name="Clock Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.power_no_lib.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_clock.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_clock.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.common.LPC845" name="common" brief="COMMON Driver" version="2.2.2" full_name="COMMON Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.clock.LPC845"/>
+          <component_dependency value="device.LPC845_CMSIS.LPC845"/>
+          <component_dependency value="platform.drivers.reset.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_common.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_common.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.ctimer.LPC845" name="ctimer" brief="CTimer Driver" version="2.0.3" full_name="CTimer Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_ctimer.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_ctimer.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.iap.LPC845" name="iap" brief="IAP Driver" version="2.0.3" full_name="IAP Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_iap.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_iap.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.inputmux.LPC845" name="inputmux" brief="INPUTMUX Driver" version="2.0.2" full_name="INPUTMUX Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.inputmux_connections.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_inputmux.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_inputmux.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.inputmux_connections.LPC845" name="inputmux_connections" brief="Inputmux_connections Driver" version="2.0.1" full_name="Inputmux_connections Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_inputmux_connections.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_acomp.LPC845" name="lpc_acomp" brief="LPC_ACOMP Driver" version="2.1.0" full_name="LPC_ACOMP Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_acomp.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_acomp.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_adc.LPC845" name="adc" brief="ADC Driver" version="2.4.0" full_name="ADC Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_adc.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_adc.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_crc.LPC845" name="lpc_crc" brief="CRC Driver" version="2.0.2" full_name="CRC Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_crc.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_crc.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_dac.LPC845" name="dac" brief="DAC Driver" version="2.0.2" full_name="DAC Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dac.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dac.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_dma.LPC845" name="dma" brief="DMA Driver" version="2.4.0" full_name="DMA Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_dma.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_dma.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_gpio.LPC845" name="gpio" brief="GPIO Driver" version="2.1.5" full_name="GPIO Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_gpio.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_gpio.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_i2c.LPC845" name="i2c" brief="I2C Driver" version="2.0.4" full_name="I2C Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_i2c.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_i2c.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_iocon_lite.LPC845" name="iocon" brief="IOCON Driver" version="2.0.0" full_name="IOCON Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_iocon.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_minispi.LPC845" name="spi" brief="SPI Driver" version="2.0.2" full_name="SPI Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_spi.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_spi.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.lpc_miniusart.LPC845" name="usart" brief="USART Driver" version="2.1.1" full_name="Usart Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_usart.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_usart.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.mrt.LPC845" name="mrt" brief="MRT Driver" version="2.0.2" full_name="MRT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_mrt.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_mrt.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.pint.LPC845" name="pint" brief="PINT Driver" version="2.1.6" full_name="PINT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_pint.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_pint.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.power_no_lib.LPC845" name="power_no_lib" brief="Power Driver" version="2.0.0" full_name="Power Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_power.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_power.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.reset.LPC845" name="reset" brief="Reset Driver" version="2.0.1" full_name="Reset Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_reset.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_reset.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.sctimer.LPC845" name="sctimer" brief="SCT Driver" version="2.1.2" full_name="SCT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_sctimer.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_sctimer.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.swm.LPC845" name="swm" brief="SWM Driver" version="2.0.1" full_name="SWM Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.swm_connections.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_swm.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_swm.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.swm_connections.LPC845" name="swm_connections" brief="Swm_connections Driver" version="2.0.0" full_name="Swm_connections Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_swm_connections.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.syscon.LPC845" name="syscon" brief="SYSCON Driver" version="2.0.1" full_name="SYSCON Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <all>
+          <component_dependency value="platform.drivers.common.LPC845"/>
+          <component_dependency value="platform.drivers.syscon_connections.LPC845"/>
+        </all>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_syscon.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_syscon.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.syscon_connections.LPC845" name="syscon_connections" brief="Syscon_connections Driver" version="2.0.0" full_name="Syscon_connections Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_syscon_connections.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.wkt.LPC845" name="wkt" brief="WKT Driver" version="2.0.2" full_name="WKT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_wkt.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_wkt.h"/>
+      </source>
+    </component>
+    <component id="platform.drivers.wwdt.LPC845" name="wwdt" brief="WWDT Driver" version="2.1.4" full_name="WWDT Driver" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="driver">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="src">
+        <files mask="fsl_wwdt.c"/>
+      </source>
+      <source path="devices/LPC845/drivers" target_path="drivers" type="c_include">
+        <files mask="fsl_wwdt.h"/>
+      </source>
+    </component>
+    <component id="middleware.baremetal.LPC845" name="baremetal" version="1.0.0" full_name="Baremetal" devices="LPC845" user_visible="true" type="OS">
+      <defines>
+        <define name="FSL_RTOS_BM" value=""/>
+        <define name="SDK_OS_BAREMETAL" value=""/>
+      </defines>
+    </component>
+    <component id="platform.utilities.misc_utilities.LPC845" name="misc_utilities" brief="Utilities which is needed for particular toolchain like the SBRK function required to address limitation between HEAP and STACK in GCC toolchain library." version="1.0.0" devices="LPC845" user_visible="true" type="utilities"/>
+    <component id="platform.utilities.assert_lite.LPC845" name="assert_lite" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="utilities">
+      <dependencies>
+        <component_dependency value="utility.debug_console_lite.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/utilities/debug_console_lite" target_path="utilities" type="src">
+        <files mask="fsl_assert.c"/>
+      </source>
+    </component>
+    <component id="utility.debug_console_lite.LPC845" name="debug_console_lite" version="1.0.0" devices="LPC845" device_cores="core0_LPC845" user_visible="true" type="utilities">
+      <dependencies>
+        <component_dependency value="platform.drivers.common.LPC845"/>
+      </dependencies>
+      <source path="devices/LPC845/utilities/debug_console_lite" target_path="utilities" type="src">
+        <files mask="fsl_debug_console.c"/>
+      </source>
+      <source path="devices/LPC845/utilities/debug_console_lite" target_path="utilities" type="c_include">
+        <files mask="fsl_debug_console.h"/>
+      </source>
+    </component>
+  </components>
+</ksdk:manifest>

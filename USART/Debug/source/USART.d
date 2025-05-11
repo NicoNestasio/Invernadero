@@ -1,0 +1,76 @@
+source/USART.o source/USART.d: ../source/USART.c \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/board.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/clock_config.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_common.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/fsl_device_registers.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/core_cm0plus.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_version.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_compiler.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_gcc.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/system_LPC845.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845_features.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_clock.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_common.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_reset.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_gpio.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/peripherals.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/pin_mux.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/clock_config.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_power.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_swm.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_swm_connections.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_iocon.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\utilities/fsl_debug_console.h \
+ C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_usart.h
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/board.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/clock_config.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_common.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/fsl_device_registers.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/core_cm0plus.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_version.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_compiler.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\CMSIS/cmsis_gcc.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/system_LPC845.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845_features.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_clock.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_common.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_reset.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_gpio.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/peripherals.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/pin_mux.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\board/clock_config.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_power.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_swm.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_swm_connections.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_iocon.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\device/LPC845.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\utilities/fsl_debug_console.h:
+
+C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\USART\drivers/fsl_usart.h:

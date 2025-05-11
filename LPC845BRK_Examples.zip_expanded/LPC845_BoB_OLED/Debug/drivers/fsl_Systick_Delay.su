@@ -1,0 +1,7 @@
+core_cm0plus.h:733:22:__NVIC_EnableIRQ	16	static
+core_cm0plus.h:840:22:__NVIC_SetPriority	24	static
+core_cm0plus.h:994:26:SysTick_Config	16	static
+fsl_Systick_Delay.c:34:6:SysTick_Handler	8	static
+fsl_Systick_Delay.c:39:10:Return_Tick_Value	8	static
+fsl_Systick_Delay.c:44:6:Ticks_Delay	24	static
+fsl_Systick_Delay.c:54:6:Systick_Init	32	static

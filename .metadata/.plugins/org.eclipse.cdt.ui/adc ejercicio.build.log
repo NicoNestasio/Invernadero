@@ -1,0 +1,6 @@
+17:40:07 **** Incremental Build of configuration Debug for project adc ejercicio ****
+make -r -j2 all 
+make: Nothing to be done for 'all'.
+
+17:40:08 Build Finished. 0 errors, 0 warnings. (took 1s.65ms)
+

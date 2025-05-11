@@ -1,0 +1,60 @@
+20:23:08 **** Incremental Build of configuration Debug for project Ejercicio systick ****
+make -r -j2 all 
+Building file: ../source/Ejercicio systick.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCPU_LPC845M301JBD64 -DCPU_LPC845M301JBD64_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\Ejercicio systick\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\Ejercicio systick\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\Ejercicio systick" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\Ejercicio systick\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\Ejercicio systick\CMSIS" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source ./"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/Ejercicio systick.d" -MT"source/Ejercicio\ systick.d" -o "source/Ejercicio systick.o" "../source/Ejercicio systick.c"
+../source/Ejercicio systick.c: In function 'main':
+../source/Ejercicio systick.c:53:2: warning: implicit declaration of function 'BOARD_BootClockFRO24M'; did you mean 'BOARD_InitBootClocks'? [-Wimplicit-function-declaration]
+  BOARD_BootClockFRO24M();
+  ^~~~~~~~~~~~~~~~~~~~~
+  BOARD_InitBootClocks
+../source/Ejercicio systick.c:55:5: error: unknown type name 'gpio_pin_config_t'
+     gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 1};
+     ^~~~~~~~~~~~~~~~~
+../source/Ejercicio systick.c:55:37: error: 'kGPIO_DigitalOutput' undeclared (first use in this function)
+     gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 1};
+                                     ^~~~~~~~~~~~~~~~~~~
+../source/Ejercicio systick.c:55:37: note: each undeclared identifier is reported only once for each function it appears in
+../source/Ejercicio systick.c:55:58: warning: excess elements in scalar initializer
+     gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 1};
+                                                          ^
+../source/Ejercicio systick.c:55:58: note: (near initialization for 'out_config')
+../source/Ejercicio systick.c:56:5: error: unknown type name 'gpio_pin_config_t'
+     gpio_pin_config_t in_config = {kGPIO_DigitalInput};
+     ^~~~~~~~~~~~~~~~~
+../source/Ejercicio systick.c:56:36: error: 'kGPIO_DigitalInput' undeclared (first use in this function)
+     gpio_pin_config_t in_config = {kGPIO_DigitalInput};
+                                    ^~~~~~~~~~~~~~~~~~
+../source/Ejercicio systick.c:57:2: error: unknown type name 'gpio_pin_config_t'
+  gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 0};
+  ^~~~~~~~~~~~~~~~~
+../source/Ejercicio systick.c:57:20: error: redefinition of 'out_config'
+  gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 0};
+                    ^~~~~~~~~~
+../source/Ejercicio systick.c:55:23: note: previous definition of 'out_config' was here
+     gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 1};
+                       ^~~~~~~~~~
+../source/Ejercicio systick.c:57:55: warning: excess elements in scalar initializer
+  gpio_pin_config_t out_config = {kGPIO_DigitalOutput, 0};
+                                                       ^
+../source/Ejercicio systick.c:57:55: note: (near initialization for 'out_config')
+../source/Ejercicio systick.c:58:2: warning: implicit declaration of function 'GPIO_PortInit' [-Wimplicit-function-declaration]
+  GPIO_PortInit(GPIO, 0);
+  ^~~~~~~~~~~~~
+../source/Ejercicio systick.c:59:2: warning: implicit declaration of function 'GPIO_PinInit' [-Wimplicit-function-declaration]
+  GPIO_PinInit(GPIO, 0, 4, &out_config);
+  ^~~~~~~~~~~~
+../source/Ejercicio systick.c:64:9: warning: implicit declaration of function 'GPIO_PinRead' [-Wimplicit-function-declaration]
+      if(GPIO_PinRead(GPIO, 0, 4)==0){
+         ^~~~~~~~~~~~
+../source/Ejercicio systick.c:66:10: warning: implicit declaration of function 'GPIO_PinWrite' [-Wimplicit-function-declaration]
+          GPIO_PinWrite(GPIO, 1, 2, 0); // Led Rojo On
+          ^~~~~~~~~~~~~
+../source/Ejercicio systick.c:56:23: warning: unused variable 'in_config' [-Wunused-variable]
+     gpio_pin_config_t in_config = {kGPIO_DigitalInput};
+                       ^~~~~~~~~
+make: *** [source/subdir.mk:26: source/Ejercicio systick.o] Error 1
+"make -r -j2 all" terminated with exit code 2. Build might be incomplete.
+
+20:23:09 Build Failed. 7 errors, 8 warnings. (took 1s.218ms)
+

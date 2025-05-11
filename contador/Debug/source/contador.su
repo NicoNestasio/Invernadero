@@ -1,0 +1,6 @@
+fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+fsl_gpio.h:172:24:GPIO_PinRead	24	static
+contador.c:50:6:cero	32	static
+contador.c:68:6:uno	32	static
+contador.c:78:6:dos	32	static
+contador.c:96:5:main	24	static

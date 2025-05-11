@@ -1,0 +1,13 @@
+fsl_SSD1306_I2C.c:53:13:OLED_Command	48	static
+fsl_SSD1306_I2C.c:69:13:OLED_Data	48	static
+fsl_SSD1306_I2C.c:86:13:OLED_Reset	8	static
+fsl_SSD1306_I2C.c:97:13:OLED_Config_Display	8	static
+fsl_SSD1306_I2C.c:126:12:OLED_Render_Char	40	static
+fsl_SSD1306_I2C.c:175:6:OLED_Init	8	static
+fsl_SSD1306_I2C.c:189:6:OLED_Refresh	48	static
+fsl_SSD1306_I2C.c:212:6:OLED_Clear	8	static
+fsl_SSD1306_I2C.c:220:6:OLED_Fill	16	static
+fsl_SSD1306_I2C.c:227:6:OLED_Display_Mode	16	static
+fsl_SSD1306_I2C.c:239:6:OLED_Set_Pixel	24	static
+fsl_SSD1306_I2C.c:260:6:OLED_Set_Text	40	static
+fsl_SSD1306_I2C.c:295:6:OLED_Copy_Image	24	static

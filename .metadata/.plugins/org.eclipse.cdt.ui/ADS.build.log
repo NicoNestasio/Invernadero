@@ -1,0 +1,30 @@
+20:17:48 **** Build of configuration Debug for project ADS ****
+make -r -j2 all 
+Building file: ../utilities/fsl_debug_console.c
+Building file: ../startup/startup_lpc845.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../startup/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"startup/startup_lpc845.d" -MT"startup/startup_lpc845.o" -MT"startup/startup_lpc845.d" -o "startup/startup_lpc845.o" "../startup/startup_lpc845.c"
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../utilities/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"utilities/fsl_debug_console.d" -MT"utilities/fsl_debug_console.o" -MT"utilities/fsl_debug_console.d" -o "utilities/fsl_debug_console.o" "../utilities/fsl_debug_console.c"
+Finished building: ../startup/startup_lpc845.c
+Finished building: ../utilities/fsl_debug_console.c
+ 
+ 
+Building file: ../source/ADS.c
+Invoking: MCU C Compiler
+Building file: ../source/mtb.c
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/ADS.d" -MT"source/ADS.o" -MT"source/ADS.d" -o "source/ADS.o" "../source/ADS.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DFSL_RTOS_BM -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=0 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\board" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\source" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\drivers" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\device" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\CMSIS" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\component\uart" -I"C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\ADS\utilities" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/mtb.d" -MT"source/mtb.o" -MT"source/mtb.d" -o "source/mtb.o" "../source/mtb.c"
+../source/ADS.c:10:10: fatal error: fsl_adc.h: No such file or directory
+ #include "fsl_adc.h"
+          ^~~~~~~~~~~
+compilation terminated.
+make: *** [source/subdir.mk:26: source/ADS.o] Error 1
+make: *** Waiting for unfinished jobs....
+Finished building: ../source/mtb.c
+ 
+"make -r -j2 all" terminated with exit code 2. Build might be incomplete.
+
+20:18:02 Build Failed. 3 errors, 0 warnings. (took 13s.790ms)
+

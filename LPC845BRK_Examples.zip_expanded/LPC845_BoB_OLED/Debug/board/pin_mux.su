@@ -1,0 +1,5 @@
+fsl_clock.h:463:20:CLOCK_EnableClock	16	static
+fsl_clock.h:473:20:CLOCK_DisableClock	16	static
+fsl_iocon.h:129:22:IOCON_PinMuxSet	24	static
+pin_mux.c:39:6:BOARD_InitBootPins	8	static
+pin_mux.c:79:6:BOARD_InitPins	16	static

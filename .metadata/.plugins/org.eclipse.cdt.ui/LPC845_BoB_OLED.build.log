@@ -1,0 +1,33 @@
+23:53:12 **** Incremental Build of configuration Debug for project LPC845_BoB_OLED ****
+make -r -j2 all 
+Building file: ../source/LPC845_SSD1306_OLED.c
+Building file: ../drivers/fsl_SSD1306_I2C.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -DCPU_LPC845M301JBD48_cm0plus -DCPU_LPC845M301JBD48 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I../board -I../source -I../ -I../drivers -I../CMSIS -I../utilities -I../startup -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/LPC845_SSD1306_OLED.d" -MT"source/LPC845_SSD1306_OLED.o" -MT"source/LPC845_SSD1306_OLED.d" -o "source/LPC845_SSD1306_OLED.o" "../source/LPC845_SSD1306_OLED.c"
+arm-none-eabi-gcc -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -DCPU_LPC845M301JBD48_cm0plus -DCPU_LPC845M301JBD48 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -D__REDLIB__ -I../board -I../source -I../ -I../drivers -I../CMSIS -I../utilities -I../startup -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../drivers/"=. -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"drivers/fsl_SSD1306_I2C.d" -MT"drivers/fsl_SSD1306_I2C.o" -MT"drivers/fsl_SSD1306_I2C.d" -o "drivers/fsl_SSD1306_I2C.o" "../drivers/fsl_SSD1306_I2C.c"
+../drivers/fsl_SSD1306_I2C.c:69:13: warning: 'OLED_Data' defined but not used [-Wunused-function]
+ static void OLED_Data (uint8_t *Data)
+             ^~~~~~~~~
+Finished building: ../source/LPC845_SSD1306_OLED.c
+Finished building: ../drivers/fsl_SSD1306_I2C.c
+ 
+ 
+Building target: LPC845_BoB_OLED.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="LPC845_BoB_OLED.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m0plus -mthumb -T LPC845_BoB_OLED_Debug.ld -o "LPC845_BoB_OLED.axf"  ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o  ./startup/aeabi_romdiv_patch.o ./startup/startup_lpc845.o  ./source/LPC845_SSD1306_OLED.o ./source/mtb.o ./source/semihost_hardfault.o  ./drivers/fsl_SSD1306_I2C.o ./drivers/fsl_Systick_Delay.o ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_gpio.o ./drivers/fsl_i2c.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_spi.o ./drivers/fsl_swm.o ./drivers/fsl_usart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o  ./CMSIS/system_LPC845.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       13008 B        64 KB     19.85%
+            SRAM:        3480 B      16352 B     21.28%
+        IAP_SRAM:          0 GB         32 B      0.00%
+Finished building target: LPC845_BoB_OLED.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "LPC845_BoB_OLED.axf"; # arm-none-eabi-objcopy -v -O binary "LPC845_BoB_OLED.axf" "LPC845_BoB_OLED.bin" ; # checksum -p LPC845 -d "LPC845_BoB_OLED.bin";
+   text	   data	    bss	    dec	    hex	filename
+  12996	     12	   3468	  16476	   405c	LPC845_BoB_OLED.axf
+ 
+
+23:53:15 Build Finished. 0 errors, 1 warnings. (took 3s.13ms)
+

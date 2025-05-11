@@ -1,0 +1,2263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ -*- coding: utf-8 -*-
+
+ Copyright 2016 Freescale Semiconductor, Inc.
+ Copyright 2016-2018 NXP
+
+ XSD SCHEMA VERSION is 3.4
+ xmlns:ksdk and targetNamespace do not reflect XSD version
+ -->
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        xmlns:xhtml="http://www.w3.org/1999/xhtml" 
+		xmlns:ksdk="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd" 
+		targetNamespace="http://nxp.com/ksdk/2.0/ksdk_manifest_v3.0.xsd">
+	<annotation/>
+	<element name="manifest">
+		<annotation>
+			<documentation>The MCUXpresso IDE manifest container.</documentation>
+		</annotation>
+		<complexType>
+			<complexContent>
+				<extension base="ksdk:identifiableWithDefines">
+					<sequence>
+						<element name="externalDefinitions" minOccurs="0">
+							<complexType>
+								<sequence>
+									<element name="definition" maxOccurs="unbounded">
+										<complexType>
+											<attribute name="extID" type="ID" use="required">
+												<annotation>
+													<documentation>The identifier defined in the external XML document</documentation>
+												</annotation>
+											</attribute>
+										</complexType>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="ksdk" type="ksdk:ksdkType">
+							<annotation>
+								<documentation>Identification information associated to the SDK related to the SDK structure.</documentation>
+							</annotation>
+						</element>
+						<element name="compilers">
+							<annotation>
+								<documentation>The container of the supported compilers in the KSDK.</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="compiler" type="ksdk:compilerType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Supported compiler.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="core_slave_roles_definitions" minOccurs="0" maxOccurs="1">
+							<annotation>
+								<documentation>The container of the supported core roles in the SDK: roles are defined in the user manual or chip model or sources.</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="slave_role" type="ksdk:roleType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Supported device core slave roles definitions.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="toolchainSettings" type="ksdk:toolchainSettingsType">
+							<annotation>
+								<documentation>The container of the settings of the supported toolchains in the KSDK.</documentation>
+							</annotation>
+						</element>
+						<element name="toolchains">
+							<annotation>
+								<documentation>The container of the supported toolchains in the KSDK.</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="toolchain" type="ksdk:toolchainType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Supported toolchain.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="boards">
+							<annotation>
+								<documentation>The container of the supported boards in the KSDK.</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="board" type="ksdk:boardType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Supported boards.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="devices">
+							<annotation>
+								<documentation>The container of the supported devices in the KSDK.</documentation>
+							</annotation>
+							<complexType>
+								<sequence>
+									<element name="device" type="ksdk:deviceType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Supported devices.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+						<element name="components">
+							<annotation>
+								<documentation>The container of the supported components in the KSDK.</documentation>
+							</annotation>
+							<complexType>
+								<annotation>
+									<documentation>List of package components.</documentation>
+								</annotation>
+								<sequence>
+									<element name="component" type="ksdk:componentType" maxOccurs="unbounded" minOccurs="0">
+										<annotation>
+											<documentation>Available components.</documentation>
+										</annotation>
+									</element>
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+					<attribute name="format_version" use="required">
+						<annotation>
+							<documentation>Version of the SDK manifest.</documentation>
+						</annotation>
+						<simpleType>
+							<restriction base="string">
+								<pattern value="[0-9]+(\.[0-9]+)*"/>
+							</restriction>
+						</simpleType>
+					</attribute>
+					<attribute name="api_version" use="optional">
+						<annotation>
+							<documentation>API version of the SDK.</documentation>
+						</annotation>
+						<simpleType>
+							<restriction base="string">
+								<pattern value="[0-9]+(\.[0-9]+)*"/>
+							</restriction>
+						</simpleType>
+					</attribute>
+					<attribute name="configuration" type="string" use="optional">
+						<annotation>
+							<documentation>SDK configuration hash.</documentation>
+						</annotation>
+					</attribute>
+				</extension>
+			</complexContent>
+		</complexType>
+	</element>
+	
+	<element name="examples" type="ksdk:examplesType">
+		<annotation>
+			<documentation>The examples root element container for external file handling and validation.</documentation>
+		</annotation>
+	</element>
+	
+	<element name="debugConfigurations" type="ksdk:debugType">
+		<annotation>
+			<documentation>The debug configurations root element container for external file handling and validation.</documentation>
+		</annotation>
+	</element>
+	
+	<element name="toolchainSettings" type="ksdk:toolchainSettingsType">
+		<annotation>
+			<documentation>The toolchain settings root element container for external file handling and validation.</documentation>
+		</annotation>
+	</element>
+	
+	<complexType name="ksdkType">
+		<annotation>
+			<documentation>Identification information associated to the SDK related to the SDK structure.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForKSDK"/>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="referenceType">
+		<annotation>
+			<documentation>A super-element provinding references to already defined elements.</documentation>
+		</annotation>
+		<sequence>
+			<element name="metadataSet" minOccurs="0">
+				<annotation>
+					<documentation>
+						The metadata container.
+					</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="metadata" type="ksdk:metadataType" maxOccurs="unbounded">
+							<annotation>
+								<documentation>The metadata describing the element.</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="id_refs" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>The references to existing elements if more, in the current XML file.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<simpleType name="versionType">
+		<annotation>
+			<documentation>Type for attribute 'version' in identifiable types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]+\.[0-9]+((\.[0-9]+)|())"/>
+		</restriction>
+	</simpleType>
+	
+	<complexType name="metadataSetType">
+		<annotation>
+			<documentation>
+				The metadata container.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="metadata" type="ksdk:metadataType" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						The metadata describing the element.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	
+	<complexType name="definesType">
+		<annotation>
+			<documentation>
+				Defines container.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="define" type="ksdk:defineType" minOccurs="1" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						The define symbol to be used in all the compilers/assemblers.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+			
+	<complexType name="identifiableType" abstract="true">
+		<annotation>
+			<documentation>A super-element providing common info for the concrete element.</documentation>
+		</annotation>
+		<sequence>
+			<element name="description" type="string" minOccurs="0">
+				<annotation>
+					<documentation>
+						The element long description.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="image" type="ksdk:sourceType" minOccurs="0">
+				<annotation>
+					<documentation>
+						The element image available in the KSDK.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/>
+			<element name="defines" type="ksdk:definesType" minOccurs="0">
+				<annotation>
+					<documentation>
+						Optional defines container, used only if there are any defines.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="id" type="ID" use="required">
+			<annotation>
+				<documentation>The element identifier.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="name" type="string" use="required">
+			<annotation>
+				<documentation>The element name.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="full_name" type="string" use="optional">
+			<annotation>
+				<documentation>The element full name.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="brief" type="string" use="optional">
+			<annotation>
+				<documentation>The element brief description.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="href" type="string" use="optional">
+			<annotation>
+				<documentation>The link to the web resource.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="version" type="ksdk:versionType" use="optional">
+			<annotation>
+				<documentation>Element version. Intended for future updates of the device information (e.g. new package added).</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="revision" type="string" use="optional">
+			<annotation>
+				<documentation>Optional versioning of changes made to a 3rd party software by NXP (for example changes related to porting of the software to NXP devices).</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="toolchain" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks element specific for particular tools.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="compiler" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks files specific for particular compiler. The attribute is used in following elements:
+							- toolchain - to provide information about compiler used by the toolchain
+							- toolchainSettings - to provide information about compiler used by the toolchain
+							- source - to provide information in case the source files are compiler specific
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="identifiableBase" abstract="true">
+        <annotation>
+            <documentation>This is base and simple identifiable type with 'id', 'name' and optional 'brief' attributes. 
+			  It is used by majority of other elements.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/>        <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="0"/> <!-- NOT allowed -->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="prohibited"/>        <!-- NOT allowed -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="prohibited"/><!-- NOT allowed -->
+				<attribute name="revision" type="string" use="prohibited"/>         <!-- NOT allowed -->
+                <attribute name="toolchain" type="IDREFS" use="prohibited"/>        <!-- NOT allowed -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="identifiableForKSDK" abstract="true">
+        <annotation>
+            <documentation>This is identifiable type for KSDK element. 
+			  Contains 'id', 'name', 'version' and optional 'revision' and 'brief' attributes.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" minOccurs="0" maxOccurs="0"/>           <!-- NOT allowed -->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="prohibited"/>        <!-- NOT allowed -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="required"/>  <!-- MUST be specified --> <!-- version of the SDK package -->
+				<!--  attr name="revision"                                               no change, kept optional -->
+                <attribute name="toolchain" type="IDREFS" use="prohibited"/>        <!-- NOT allowed -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+	
+	<complexType name="identifiableWithDefines" abstract="true">
+        <annotation>
+            <documentation>This is base identifiable type with 'defines' element, contains 'id', 'name' and optional 'brief' attributes.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="1"/> <!-- no change, kept optional-->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="prohibited"/>        <!-- NOT allowed -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" use="prohibited"/>                        <!-- NOT allowed -->
+				<attribute name="revision" use="prohibited"/>                       <!-- NOT allowed -->
+                <attribute name="toolchain" type="IDREFS" use="prohibited"/>        <!-- NOT allowed -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+	
+	<complexType name="identifiableForBoard" abstract="true">
+        <annotation>
+            <documentation>This is identifiable type for 'board' elements, 
+			  with optional 'defines' sub-element, contains 'id', 'name' and optional 'revision' and 'brief' attributes.
+			  Version is fixed to '1.0.0' and it is reserved for future use.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="1"/> <!-- no change, kept optional-->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="prohibited"/>        <!-- NOT allowed -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="required" fixed="1.0.0"/>  <!-- MUST be used but version has no meaning, intended for future extension -->
+				<!--  attr name="revision"                                               no change, kept optional --> 
+                <attribute name="toolchain" type="IDREFS" use="prohibited"/>        <!-- NOT allowed -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="identifiableForToolchain" abstract="true">
+        <annotation>
+            <documentation>This is identifiable type for toolchain and toolchainSettings elements. 
+			  Contains 'id', 'name', 'version', 'full_name', 'compiler' and optional 'revision', 'brief', 'toolchain' attributes.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" minOccurs="0" maxOccurs="0"/>           <!-- NOT allowed -->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="required"/>          <!-- MUST be specified -->            <!-- UI description of the toolchain -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="required"/>  <!-- MUST be specified -->            <!-- version of the toolchain -->
+				<!--  attr name="revision"                                               no change, kept optional -->
+                <!--  attr name="toolchain"                                              no change, kept optional -->     <!-- reference from toolchainSettings to toolchain -->
+                <attribute name="compiler" type="IDREFS" use="required"/>           <!-- MUST be specified -->            <!-- compiler included in the toolchain -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="identifiableForExample" abstract="true">
+        <annotation>
+            <documentation>This is base identifiable type with 'defines' element, contains 'id', 'name' and optional 'toolchain', 'brief' attributes.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="1"/> <!-- no change, kept optional-->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<attribute name="full_name" type="string" use="prohibited"/>        <!-- NOT allowed -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" use="prohibited"/>                        <!-- NOT allowed -->
+				<attribute name="revision" use="prohibited"/>                       <!-- NOT allowed -->
+                <!--  attr name="toolchain"                                              no change, kept optional -->    <!-- list of supported toolchains, must be specified in the manifest, not in example definition file -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="identifiableForComponent" abstract="true">
+        <annotation>
+            <documentation>This is identifiable type for 'component' elements, 
+			  with optional 'defines' sub-element, contains 'id', 'name', 'version' and optional 'full_name', 'brief' attributes.
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="1"/> <!-- no change, kept optional -->
+                </sequence>
+		        <!--  attr name="id"                                                     no change, kept required --> 
+				<!--  attr name="name"                                                   no change, kept required -->
+				<!--  attr name="full_name"                                              no change, kept optional -->         <!-- component name to be displayed in UI, use name if not defined -->
+				<!--  attr name="brief"                                                  no change, kept optional -->
+				<!--  attr name="href"                                                   no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="required"/>  <!-- MUST be used -->                     <!-- component version -->
+				<!--  attr name="revision"                                               no change, kept optional -->
+                <!--  attr name="toolchain"                                              no change, kept optional -->    
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="identifiableForDevice" abstract="true">
+        <annotation>
+            <documentation>This is identifiable type for 'device' elements, 
+			  with optional 'defines' sub-element, contains 'id', 'name', 'full_name' and optional 'brief' attributes.
+			  Attribute 'version' is fixed to '1.0.0' (no real meaning)
+			  Includes also optional attribute 'href', and optional elements 'description', 'image', 'metadataSet'.
+			</documentation>
+        </annotation>
+        <complexContent>
+            <restriction base="ksdk:identifiableType">
+                <sequence>
+                    <element name="description" type="string" minOccurs="0"/>       <!-- no change, kept optional -->
+                    <element name="image" type="ksdk:sourceType" minOccurs="0"/>    <!-- no change, kept optional -->
+                    <element name="metadataSet" type="ksdk:metadataSetType" minOccurs="0"/> <!-- no change, kept optional -->
+                    <element name="defines" type="ksdk:definesType" minOccurs="0" maxOccurs="1"/> <!-- no change, kept optional-->
+                </sequence>
+		        <!-- attribute name="id"                                                 no change, kept required --> 
+				<!-- attribute name="name"                                               no change, kept required -->
+				<attribute name="full_name" type="string" use="required"/>          <!-- MUST be used -->
+				<!-- attribute name="brief"                                              no change, kept optional -->
+				<!-- attribute name="href"                                               no change, kept optional -->
+				<attribute name="version" type="ksdk:versionType" use="required" fixed="1.0.0"/>  <!-- MUST be used but version has no meaning, intended for future extension -->
+				<attribute name="revision" type="string" use="prohibited"/>         <!-- NOT allowed -->
+                <attribute name="toolchain" type="IDREFS" use="prohibited"/>        <!-- NOT allowed -->
+                <attribute name="compiler" type="IDREFS" use="prohibited"/>         <!-- NOT allowed -->
+            </restriction>
+        </complexContent>
+    </complexType>
+
+	<complexType name="deviceType">
+		<annotation>
+			<documentation>The device description.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForDevice">
+				<sequence>
+					<element name="core" maxOccurs="unbounded" type="ksdk:coreType"/>
+					<element name="memory" type="ksdk:memoryType" minOccurs="0" maxOccurs="unbounded" />
+					<element name="total_memory" type="ksdk:totalMemoryType" minOccurs="1" maxOccurs="1" />
+					<element name="package" type="ksdk:packageType" maxOccurs="unbounded">
+						<annotation>
+							<documentation>
+								The specific device package. This could
+								be extended in the future for further
+								uses (e.g. pins functions allocation).
+							</documentation>
+						</annotation>
+					</element>
+					<element name="evaluation_boards" minOccurs="0">
+						<annotation>
+							<documentation>
+								Evaluation board references container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="evaluation_board" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Referenced evaluation
+											boards.
+										</documentation>
+									</annotation>
+									<complexType>
+										<annotation>
+											<documentation>
+												Supported evaluation
+												board.
+											</documentation>
+										</annotation>
+										<attribute name="name" type="IDREF" use="required">
+											<annotation>
+												<documentation>
+													ID of the board
+													defined in the
+													manifest.
+												</documentation>
+											</annotation>
+										</attribute>
+									</complexType>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="toolchainSettings" minOccurs="0">
+						<annotation>
+							<documentation>
+								Toolchain settings container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="toolchainSetting" type="ksdk:toolchainSettingRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Supported
+											toolchainSettings/extension.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="debug_configurations"
+						minOccurs="0">
+						<annotation>
+							<documentation>
+								Debug configurations container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="debug_configuration"
+									type="ksdk:debugConfigurationRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Supported debug configurations/extensions.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="linkerSettings" type="ksdk:linkerSettingsType" maxOccurs="unbounded" minOccurs="0">
+						<annotation>
+							<documentation>
+								Linker settings container.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="packageType">
+		<annotation>
+			<documentation>Contains name of package(s).</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableWithDefines">
+				<attribute name="pins" type="integer" use="optional">
+					<annotation>
+						<documentation>Optional number of pins for the package.</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="memoryType">
+		<annotation>
+			<documentation>Memory area specification.</documentation>
+		</annotation>
+		<sequence>
+			<element name="memoryBlock" type="ksdk:memoryBlockType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+		<attribute name="devices" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Optional, for memory that are related to
+					specific devices.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="totalMemoryType">
+		<annotation>
+			<documentation>Total memory available on the processor.</documentation>
+		</annotation>
+		<attribute name="flash_size_kb" type="int" use="required">
+			<annotation>
+				<documentation>The total internal flash size in kb.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ram_size_kb" type="int" use="required">
+			<annotation>
+				<documentation>The total ram size in kb.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="boardType">
+		<annotation>
+			<documentation>The board description.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForBoard">
+				<sequence>
+					<element name="memory" type="ksdk:memoryType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>The extensions made to the memory config provided by the device. This is used in order to handle external memories provided by the board.</documentation>
+						</annotation>
+					</element>
+					<element name="total_memory" type="ksdk:totalMemoryType" minOccurs="0" maxOccurs="1" >
+						<annotation>
+							<documentation>Total amount of external memory available on the board.</documentation>
+						</annotation>
+					</element>
+					<element name="examples" type="ksdk:examplesType" minOccurs="0">
+						<annotation>
+							<documentation>The examples container. Can be used to handle specific board configuration sources.</documentation>
+						</annotation>
+					</element>
+					<element name="toolchainSettings" minOccurs="0">
+						<annotation>
+							<documentation>Toolchain settings container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="toolchainSetting" type="ksdk:toolchainSettingRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>Supported toolchainSettings/extension.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="debug_configurations" minOccurs="0">
+						<annotation>
+							<documentation>Debug configurations container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="debug_configuration" type="ksdk:debugConfigurationRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>Supported debug configurations/extensions.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+				<attribute name="package" type="IDREF" use="required">
+					<annotation>
+						<documentation>The reference to the supported device package for the board.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="type" type="ksdk:boardEnum" use="optional">
+    				<annotation>
+    					<documentation>Define the board type.</documentation>
+    				</annotation>
+    			</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="exampleType">
+		<annotation>
+			<documentation>Supported example.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForExample">
+				<sequence>
+					<element name="external" type="ksdk:sourceType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>The external XML file used.</documentation>
+						</annotation>
+					</element>
+					<element name="projects"  minOccurs="0">
+						<annotation>
+							<documentation>
+								The project types container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="project"
+									type="ksdk:projectTypeType" minOccurs="1" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											The project type supported by the example.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="memory" type="ksdk:memoryType" minOccurs="0"
+						maxOccurs="unbounded" />
+					<element name="toolchainSettings" minOccurs="0">
+						<annotation>
+							<documentation>
+								Toolchain settings container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="toolchainSetting"
+									type="ksdk:toolchainSettingRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Supported
+											toolchainSettings/extension.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="debug_configurations"
+						minOccurs="0">
+						<annotation>
+							<documentation>
+								Debug configurations container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="debug_configuration"
+									type="ksdk:debugConfigurationRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Supported debug configurations/extensions.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+
+					<element name="include_paths"  minOccurs="0">
+						<annotation>
+							<documentation>
+								The include paths container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="include_path"
+									type="ksdk:includeType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											The include path relative to the example base path.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="source" type="ksdk:sourceType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Example source code.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+				<attribute name="device" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>Devices id-refs for this example.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="device_core" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							The Core Id reference specific for this example and related to a specific device core.
+							NOTE: the list for the device core and role in the XSD is ONLY used to correctly populate the content
+		 					while handling external definition. Only the first item is actually used.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="slave_role" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							The core slave roles reference specific for this example.
+							NOTE: the list for the device core and role in the XSD is ONLY used to correctly populate the content
+		 					while handling external definition. Only the first item is actually used.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="board" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>Boards id-refs for this example.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="dependency" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>ID-Refs of components dependencies separated by space.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="linked_projects" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							Optional, add references to required projects (e.g. multicore master/slave projects).
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="path" use="optional">
+					<annotation>
+						<documentation>
+							Relative path to the example base path.
+							Path is relative to the package root directory. “/”
+							used as directory separator.
+						</documentation>
+					</annotation>
+					<simpleType>
+						<restriction base="string">
+							<pattern value="([$a-zA-Z_\-\s0-9\.\|\(\)']+/?)+" />
+						</restriction>
+					</simpleType>
+				</attribute>
+		        <attribute name="category" type="string" use="optional">
+			        <annotation>
+				        <documentation>Category of the example to be displayed in UI, slash '/' separated groups.</documentation>
+			        </annotation>
+		        </attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="sourceType">
+		<annotation>
+			<documentation>
+				Source files for supported example.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="files" type="ksdk:fileType"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="path" use="required">
+			<annotation>
+				<documentation>
+					Relative path to the directory with component files.
+					Path is relative to the package root directory. "/"
+					used as directory separator.
+					Manifest macro symbols can be used.
+					They are delimited using $| and | characters and replaced by MCUXpresso tools with specific string derived from device selected in the tools.
+					Usage macros: device, device_full_name, package, core_name, core_type, core, compiler, toolchain.
+					(e.g. $|device_full_name| - element "device", attribute "full_name")
+				</documentation>
+			</annotation>
+			<simpleType>
+				<restriction base="string">
+					<pattern value="([$a-zA-Z_\-\s0-9\.\|\(\)']+/?)+" />
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="target_path" use="optional">
+			<annotation>
+				<documentation>
+					The target path folder relative to the project
+					folder. If not specified, the default handled by the
+					IDE will be used.
+				</documentation>
+			</annotation>
+			<simpleType>
+				<restriction base="string">
+					<pattern value="([$a-zA-Z_\-\s0-9\.\|\(\)']+/?)+" />
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="method" type="ksdk:methodTypeEnum" use="optional">
+			<annotation>
+				<documentation>
+					The recommended method to use: it will copy or link the files by default,
+					according to this method attribute. Basically, it could be used to override any "copy source"
+					or "standalone" machanism.
+					It is used only for type="lib".
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="type" type="ksdk:sourceTypeEnum" use="required">
+			<annotation>
+				<documentation>
+					Type of source files of example.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="toolchain" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks files specific for particular tool.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="compiler" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks files specific for particular compiler
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="variant" use="optional">
+			<annotation>
+				<documentation>
+					Component variant for linker component.
+				</documentation>
+			</annotation>
+			<simpleType>
+				<restriction base="string">
+					<pattern value="flash" />
+					<pattern value="ram" />
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="condition" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					The required element needed by this source.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="exclude" type="boolean" use="optional">
+			<annotation>
+				<documentation>
+					If true, all the files contained in the source element will be excluded from the build.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="device_cores" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					The Core Id reference specific for this component and related to a specific device core.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="relative" type="boolean" use="optional" default="false">
+			<annotation>
+				<documentation>
+					Used to distinguish absolute and relative paths: if true, the path is relative to component directory, otherwise is relative to project root.
+					As default, path is relative to project root directory.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="fileType">
+		<annotation>
+			<documentation>Source files specification.</documentation>
+		</annotation>
+		<attribute name="mask" type="string" use="required">
+			<annotation>
+				<documentation>
+					File name mask including extension.
+					Manifest macro symbols can be used.
+					They are delimited using $| and | characters and replaced by MCUXpresso tools with specific string derived from device selected in the tools.
+					Usage macros: device, device_full_name, package, core_name, core_type, core, compiler, toolchain.
+					(e.g. $|device_full_name| - element "device", attribute "full_name")
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="buildConfigurationType">
+		<annotation>
+			<documentation>Build configuration definition.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase">
+				<attribute name="instance_of"  type="ksdk:buildConfigurationTypes" use="required"/>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="buildConfigurationsType">
+		<annotation>
+			<documentation>The build configurations definitions container.</documentation>
+		</annotation>
+		<sequence>
+			<element name="buildConfiguration" type="ksdk:buildConfigurationType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Build configuration definition.</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="active" type="IDREF" use="optional">
+			<annotation>
+				<documentation>Define the active build configuration (among the listed and the default).
+				An active build configuration can be set using the default debug and release build configuration
+				identifiers, thus, there is no need to create a new build configuration element to specify the active one.
+				By default (if the attribute is not specified) it is set to the default debug build configuration.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	<complexType name="toolchainSettingRefType">
+		<annotation>
+			<documentation>The reference type extending existing toolchainSetting with new options.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:referenceType">
+				<sequence>
+					<element name="buildConfigurations" type="ksdk:buildConfigurationsType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>The list of new build configurations.</documentation>
+						</annotation>
+					</element>
+					<element name="buildSteps" type="ksdk:buildStepsType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>The toolchainSetting build steps container.</documentation>
+						</annotation>
+					</element>
+					<element name="option" type="ksdk:optionType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>The toolchainSetting options.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="toolchainSettingType">
+		<annotation>
+			<documentation>Supported toolchainSettings settings.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForToolchain">
+				<sequence>
+					<element name="buildConfigurations" type="ksdk:buildConfigurationsType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>The list of new build configurations.</documentation>
+						</annotation>
+					</element>
+					<element name="buildSteps" type="ksdk:buildStepsType" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>The toolchainSetting build steps container.</documentation>
+						</annotation>
+					</element>
+					<element name="option" type="ksdk:optionType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>The toolchainSetting options.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="toolchainType">
+		<annotation>
+			<documentation>Supported toolchains settings.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForToolchain">
+				<sequence minOccurs="0">
+					<element name="debug" type="ksdk:debugType" minOccurs="0">
+						<annotation>
+							<documentation>The container of the supported debug configurations in the KSDK.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+				<attribute name="type" use="required">
+					<annotation>
+						<documentation>Supported toolchain type.</documentation>
+					</annotation>
+					<simpleType>
+						<restriction base="ksdk:toolchainEnum"/>
+					</simpleType>
+				</attribute>
+				<attribute name="vendor" type="string" use="required">
+					<annotation>
+						<documentation>Name of the toolchain vendor. </documentation>
+					</annotation>
+				</attribute>
+				<attribute name="vendor_url" type="string" use="required">
+					<annotation>
+						<documentation> Link to the vendor homepage.</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="optionType">
+		<annotation>
+			<documentation>Option specification.</documentation>
+		</annotation>
+		<sequence>
+			<element name="value" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Eclipse toolchainSetting option value without spaces. This value will be applied on the defined eclipse option.</documentation>
+				</annotation>
+				<simpleType>
+					<restriction base="string"/>
+				</simpleType>
+			</element>
+		</sequence>
+		<attribute name="id" type="NCName" use="required">
+			<annotation>
+				<documentation>Eclipse option ID. ID of the configured property (ID of the element in the plugin).</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="type" type="ksdk:optionTypeEnum" use="required">
+			<annotation>
+				<documentation>Type of the property. </documentation>
+			</annotation>
+		</attribute>
+		<attribute name="user_name" type="string" use="optional">
+			<annotation>
+				<documentation>Eclipse option name (name visible for the UI element).</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="build_configs" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					List of build configurations this option applies to. If not specified it will apply to all the build configurations.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="componentType">
+		<annotation>
+			<documentation>
+				The package component definition.
+				The following mapping will be applied for the component base folder:
+	  				"driver" then target directory is "drivers"
+					"linker" then target directory is "" (root folder)
+					"other" then target directory is "" (root folder)
+					"CMSIS" then target directory is "CMSIS" (e.g. same as component-type)
+					"startup" then target directory is "startup" (e.g. same as component-type)
+				 	"utilities" then target directory is "utilities" (e.g. same as component-type)
+					"OS" then target directory is component-name
+					"middleware" then target directory is component-name
+					"project_template" and component-name = (device or board) then target directory is "board"
+					"project_template" and component-name = RTOS-component-name then target directory is "source"
+			</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableForComponent">
+				<sequence>
+					<element name="cmsis_component" minOccurs="0" maxOccurs="1">
+						<annotation>
+							<documentation>
+								CMSIS Component reference.
+							</documentation>
+						</annotation>
+						<complexType>
+							<attribute name="pack_name" type="string" use="required"/>
+							<attribute name="pack_versions" type="string" use="required"/>
+							<attribute name="class" type="string" use="required"/>
+							<attribute name="group" type="string" use="required"/>
+							<attribute name="sub" type="string" use="optional"/>
+							<attribute name="versions" type="string" use="required"/>
+							<attribute name="vendor" type="string" use="optional"/>
+							<attribute name="variant" type="string" use="optional"/>
+							<attribute name="apiversions" type="string" use="optional"/>
+						</complexType>
+					</element>
+					<element name="source" type="ksdk:sourceType" minOccurs="0"
+						maxOccurs="unbounded">
+						<annotation>
+							<documentation>
+								Component sources.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="include_paths"  minOccurs="0">
+						<annotation>
+							<documentation>
+								The include paths container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="include_path"
+									type="ksdk:includeType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											The include path relative to the component base path.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+				<attribute name="user_visible" type="boolean" use="optional" default="true">
+					<annotation>
+						<documentation>
+							Define component visibility in the UI.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="type" type="ksdk:componentTypeEnum" use="required">
+					<annotation>
+						<documentation>
+							Define component type.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="devices" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							Optional, for components that are related to
+							specific devices (e.g. drivers).
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="packages" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							Optional, for components that are related to
+							specific device's packages (e.g. drivers).
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="dependency" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							Optional. List of names of components
+							(separated by space) on which the component
+							is dependent. This component will be
+							automatically imported in the project.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="api_version" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Optional, component API version (currently
+							used for RTOSes).
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="device_cores" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							The Core Id reference specific for this component and related to a specific device core.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="slave_roles" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							The core slave roles reference specific for this component.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="boot_role" type="ksdk:bootRoleTypeEnum" use="optional">
+					<annotation>
+						<documentation>
+							The core boot role references.
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="target_path">
+					<annotation>
+						<documentation>
+							The target path folder relative to the project
+							folder. If not specified, the default handled by the
+							IDE will be used.
+						</documentation>
+					</annotation>
+					<simpleType>
+						<restriction base="string">
+							<pattern value="([$a-zA-Z_\-\s0-9\.\|\(\)']+/?)+" />
+						</restriction>
+					</simpleType>
+				</attribute>
+		        <attribute name="category" type="string" use="optional">
+			        <annotation>
+				        <documentation>Category of the component to be displayed in UI, slash '/' separated groups.</documentation>
+			        </annotation>
+		        </attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="debugConfigurationRefType">
+		<annotation>
+			<documentation>The reference type to a debug configuration for overriding use.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:referenceType">
+				<sequence minOccurs="0">
+					<element name="scripts" minOccurs="0">
+						<annotation>
+							<documentation>The scripts container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="script" type="ksdk:scriptType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The debugging scripts.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="params" minOccurs="0">
+						<annotation>
+							<documentation>The parameters container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="params" type="ksdk:paramType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The debugging parameters.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="drivers" minOccurs="0">
+						<annotation>
+							<documentation>The memory drivers container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="driver" type="ksdk:driverType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The memory driver for a specific memory block.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="debugConfigurationType">
+		<annotation>
+			<documentation>Debugging setting property.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase">
+				<sequence minOccurs="0">
+					<element name="scripts" minOccurs="0">
+						<annotation>
+							<documentation>The scripts container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="script" type="ksdk:scriptType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The debugging scripts.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="params" minOccurs="0">
+						<annotation>
+							<documentation>The parameters container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="params" type="ksdk:paramType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The debugging parameters.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="drivers" minOccurs="0">
+						<annotation>
+							<documentation>The memory drivers container.</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="driver" type="ksdk:driverType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>The memory driver for a specific memory block.</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+				<attribute name="probe" type="ksdk:probeType" use="optional">
+					<annotation>
+						<documentation>The supported probe for the debug configuration.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="build_configs" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							List of build configurations this debug configuration refers to. If not specified it will apply to all the build configurations.
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="paramType">
+		<annotation>
+			<documentation>The debug parameter type definition.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase">
+				<attribute name="value" type="string">
+					<annotation>
+						<documentation>The param value.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="default" type="string" use="optional">
+					<annotation>
+						<documentation>The default value.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="enum" type="string" use="optional">
+					<annotation>
+						<documentation>Space separated enum values.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="condition" type="boolean" use="optional">
+					<annotation>
+						<documentation>True if the param is required.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="type" use="optional">
+					<annotation>
+						<documentation>The param type.</documentation>
+					</annotation>
+					<simpleType>
+						<restriction base="string">
+							<enumeration value="boolean"/>
+							<enumeration value="integer"/>
+							<enumeration value="string"/>
+							<enumeration value="enum"/>
+							<enumeration value="hex"/>
+						</restriction>
+					</simpleType>
+				</attribute>
+				<attribute name="options" type="string" use="optional">
+					<annotation>
+						<documentation>Additional parameter options.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="probe" type="ksdk:probeType" use="optional">
+					<annotation>
+						<documentation>The supported probe for the specific debug setting.</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="scriptType">
+		<annotation>
+			<documentation>The script type.</documentation>
+		</annotation>
+		<choice>
+			<element name="source" type="ksdk:sourceType">
+				<annotation>
+					<documentation>The source file containing the script in the package.</documentation>
+				</annotation>
+			</element>
+			<element name="script" type="string">
+				<annotation>
+					<documentation>The script code.</documentation>
+				</annotation>
+			</element>
+		</choice>
+		<attribute name="type" type="ksdk:scriptTypeType" use="optional">
+			<annotation>
+				<documentation>The script type.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="silent" type="boolean" use="optional">
+			<annotation>
+				<documentation>The silent setting.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="emulators" type="string" use="optional">
+			<annotation>
+				<documentation>The emulator settings used for the script.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="metadataType">
+		<annotation>
+			<documentation>The metadata element.</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<element name="specific" minOccurs="0">
+				<annotation>
+					<documentation>Specific metadata content.</documentation>
+				</annotation>
+				<complexType>
+					<sequence>
+						<element name="content" type="anyType">
+							<annotation>
+								<documentation>The content.</documentation>
+							</annotation>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="key" type="string" use="optional">
+			<annotation>
+				<documentation>The metadata name.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="value" type="string" use="optional">
+			<annotation>
+				<documentation>The metadata string value.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+	
+	<complexType name="compilerType">
+		<annotation>
+			<documentation>The compiler type.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase">
+				<attribute name="type" type="ksdk:compilerEnum" use="required">
+					<annotation>
+						<documentation>The type of the supported compiler.</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="roleType">
+		<annotation>
+			<documentation>The core role type.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase"/>
+		</complexContent>
+	</complexType>
+	
+	<complexType name="memoryBlockType">
+		<annotation>
+			<documentation>The memory region specification.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:identifiableBase">
+				<attribute name="addr" type="hexBinary" use="required">
+					<annotation>
+						<documentation>Start address of the memory area.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="size" type="hexBinary" use="required">
+					<annotation>
+						<documentation>Memory area size in bytes.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="type" use="required" type="ksdk:memoryBlocTypeEnum">
+					<annotation>
+						<documentation>Memory type.</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="access" type="ksdk:deviceMemoryAccesTypes" use="required">
+					<annotation>
+						<documentation> Memory access type (R,W,RX,RW). </documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="driverType">
+		<annotation>
+			<documentation>The driver of a specific memory block. It contains the references to the memory blocks as well as the binary file in the SDK.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:referenceType">
+				<sequence>
+					<element name="driverBinary" type="ksdk:sourceType" minOccurs="1" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="bootRoleTypeEnum">
+		<annotation>
+			<documentation>Defines the possible core boot roles.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="primary"/>
+			<enumeration value="secondary"/>
+			<enumeration value="primary_secondary"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="coreEnum">
+		<annotation>
+			<documentation>Defines the possible core types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="cm0"/>
+			<enumeration value="cm0plus"/>
+			<enumeration value="cm3"/>
+			<enumeration value="cm23"/>
+			<enumeration value="cm33"/>
+			<enumeration value="cm33_nodsp"/>
+			<enumeration value="cm4"/>
+			<enumeration value="cm7"/>
+			<enumeration value="ca7"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="buildConfigurationTypes">
+		<annotation>
+			<documentation>Defines the possible build configuration types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="com.nxp.mcuxpresso.ide.build_config.debug"/>
+			<enumeration value="com.nxp.mcuxpresso.ide.build_config.release"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="boardEnum">
+		<annotation>
+			<documentation>Defines the possible board types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="kit"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="deviceMemoryAccesTypes">
+		<annotation>
+			<documentation>Defines the possible memory acces types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="R"/>
+			<enumeration value="W"/>
+			<enumeration value="RO"/>
+			<enumeration value="RW"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="sourceTypeEnum">
+		<annotation>
+			<documentation>
+				Defines the possible file types.
+				Note that "src" is used to sources used both for C or C++ projects; "src_c" is used only C project srelated files; "src_cpp" is used only for C++ projects related files.
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="src"/>
+			<enumeration value="src_c"/>
+			<enumeration value="src_cpp"/>
+			<enumeration value="c_include"/>
+			<enumeration value="cpp_include"/>
+			<enumeration value="asm_include"/>
+			<enumeration value="configuration"/>
+			<enumeration value="debug"/>
+			<enumeration value="linker"/>
+			<enumeration value="driver"/>
+			<enumeration value="xml"/>
+            <enumeration value="archive"/>
+			<enumeration value="binary"/>
+			<enumeration value="doc"/>
+			<enumeration value="image"/>
+			<enumeration value="lib"/>
+			<enumeration value="lib_c"/>
+			<enumeration value="lib_cpp"/>
+			<enumeration value="object"/>
+			<enumeration value="object_c"/>
+			<enumeration value="object_cpp"/>
+			<enumeration value="project"/>
+			<enumeration value="script"/>
+			<enumeration value="working_set"/>
+			<enumeration value="workspace"/>
+			<enumeration value="other"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="includeTypeEnum">
+		<annotation>
+			<documentation>Defines the possible include types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="c_include"/>
+			<enumeration value="cpp_include"/>
+			<enumeration value="asm_include"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="compilerEnum">
+		<annotation>
+			<documentation>Defines the possible compilers types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="arm"/>
+			<enumeration value="gcc"/>
+			<enumeration value="iar"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="optionTypeEnum">
+		<annotation>
+			<documentation>Defines the possible option type.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="string"/>
+			<enumeration value="boolean"/>
+			<enumeration value="stringList"/>
+			<enumeration value="enum"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="projectType">
+		<annotation>
+			<documentation>Defines the possible project types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="com.crt.advproject.projecttype.exe"/>
+			<enumeration value="com.crt.advproject.projecttype.lib"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="memoryBlocTypeEnum">
+		<annotation>
+			<documentation>Memory type.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Flash"/>
+			<enumeration value="RAM"/>
+			<enumeration value="EEPROM"/>
+			<enumeration value="SPIFI"/>
+			<enumeration value="ExtFlash"/>
+			<enumeration value="DFlash"/>
+			<enumeration value="NVM"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="projectNature">
+		<annotation>
+			<documentation>Defines the possible project nature types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="org.eclipse.cdt.core.cnature"/>
+			<enumeration value="org.eclipse.cdt.core.ccnature"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="componentTypeEnum">
+		<annotation>
+			<documentation>Defines the possible component types.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="OS"/>
+			<enumeration value="CMSIS"/>
+			<enumeration value="startup"/>
+			<enumeration value="linker"/>
+			<enumeration value="hal"/>
+			<enumeration value="driver"/>
+			<enumeration value="other"/>
+			<enumeration value="utilities"/>
+			<enumeration value="middleware"/>
+			<enumeration value="project_template"/>
+			<enumeration value="debugger"/>
+			<enumeration value="tools"/>
+			<enumeration value="EULA"/>
+			<enumeration value="SCR"/>
+			<enumeration value="documentation"/>
+			<enumeration value="template"/>
+			<enumeration value="CMSIS_driver"/>
+			<enumeration value="CMSIS_Include"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="toolchainEnum">
+		<annotation>
+			<documentation>Defines the possible toolchain ID.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="armgcc"/>
+			<enumeration value="iar"/>
+			<enumeration value="mdk"/>
+			<enumeration value="mcuxpresso"/>
+			<enumeration value="lpcx"/>
+			<enumeration value="dsmdk"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="natureType">
+		<annotation>
+			<documentation>Defines the possible project natures.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="c_nature"/>
+			<enumeration value="cpp_nature"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="linkerSettingType">
+		<annotation>
+			<documentation>Defines the possible linker setting variable names.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="start_symbol"/>
+			<enumeration value="text_align"/>
+			<enumeration value="data_align"/>
+			<enumeration value="bss_align"/>
+			<enumeration value="crp"/>
+			<enumeration value="crp_address"/>
+			<enumeration value="flash_security_address"/>
+			<enumeration value="stack_section_name"/>
+			<enumeration value="mtb_supported"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="probeType">
+		<annotation>
+			<documentation>Defines the possible supported probes.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="LinkServer"/>
+			<enumeration value="Segger"/>
+			<enumeration value="PE"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="debugType">
+		<annotation>
+			<documentation>The debug configurations container.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:externalDefinitionType">
+				<sequence>
+					<element name="external" type="ksdk:sourceType" minOccurs="0">
+						<annotation>
+							<documentation>The external XML file used.</documentation>
+						</annotation>
+					</element>
+					<element name="debug_configuration" type="ksdk:debugConfigurationType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>The available debug configurations.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="examplesType">
+		<annotation>
+			<documentation>The examples container.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:externalDefinitionType">
+				<sequence>
+					<element name="external" type="ksdk:sourceType" minOccurs="0">
+						<annotation>
+							<documentation>The external XML file used.</documentation>
+						</annotation>
+					</element>
+					<element name="example" type="ksdk:exampleType" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="toolchainSettingsType">
+		<annotation>
+			<documentation>The toolchain settings container.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:externalDefinitionType">
+				<sequence>
+					<element name="external" type="ksdk:sourceType" minOccurs="0">
+						<annotation>
+							<documentation>The external XML file used.</documentation>
+						</annotation>
+					</element>
+					<element name="toolchainSetting" type="ksdk:toolchainSettingType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Supported toolchain settings.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="buildStepType">
+		<annotation>
+			<documentation>
+				The build step element.
+			</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="build_configs" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							List of build configurations this step applies to. If not specified then the steps applies to all build configurations in a project.
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<complexType name="buildStepsType">
+		<annotation>
+			<documentation>
+				The toolchain pre-build and post-build steps container.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="preBuildStep" type="ksdk:buildStepType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Commands executed prior project build is invoked.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="postBuildStep" type="ksdk:buildStepType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Commands executed after project build is completed.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="externalDefinitionType" abstract="true">
+		<annotation>
+			<documentation>The container of the external identifiers.</documentation>
+		</annotation>
+		<sequence>
+			<element name="externalDefinitions" minOccurs="0">
+				<complexType>
+					<sequence>
+						<element name="definition" maxOccurs="unbounded">
+							<complexType>
+								<attribute name="extID" type="ID" use="required">
+									<annotation>
+										<documentation>The identifier defined in an external XML document</documentation>
+									</annotation>
+								</attribute>
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+	<simpleType name="scriptTypeType">
+		<restriction base="string">
+			<enumeration value="init"/>
+			<enumeration value="run"/>
+			<enumeration value="linkserver_connect"/>
+			<enumeration value="linkserver_reset"/>
+			<enumeration value="linkserver_erase"/>
+			<enumeration value="segger_script"/>
+			<enumeration value="segger_file"/>
+			<enumeration value="pe_script"/>
+			<enumeration value="pe_file"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="methodTypeEnum">
+		<restriction base="string">
+			<enumeration value="copy"/>
+			<enumeration value="link"/>
+		</restriction>
+	</simpleType>
+	<complexType name="linkerSettingsType">
+		<sequence>
+			<element name="linker" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Linker settings. Specific for the linker component.</documentation>
+				</annotation>
+				<complexType>
+					<attribute name="property" type="ksdk:linkerSettingType" use="required">
+						<annotation>
+							<documentation>The linker property name.</documentation>
+						</annotation>
+					</attribute>
+					<attribute name="value" type="string" use="required">
+						<annotation>
+							<documentation>The linker property value.</documentation>
+						</annotation>
+					</attribute>
+				</complexType>
+			</element>
+			<element name="script" type="ksdk:sourceType" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+		<attribute name="nature" type="ksdk:natureType" use="required"></attribute>
+	</complexType>
+    <complexType name="projectTypeType">
+		<annotation>
+			<documentation>Project type specification.</documentation>
+		</annotation>
+		<attribute name="type" type="ksdk:projectType" use="required">
+			<annotation>
+				<documentation>
+					Type of the project.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="nature" type="ksdk:projectNature" use="required">
+			<annotation>
+				<documentation>
+					Nature of the project.
+				</documentation>
+			</annotation>
+		</attribute>
+    </complexType>
+
+    <complexType name="includeType">
+		<annotation>
+			<documentation>Include specification. The path used is relative to the component base path.</documentation>
+		</annotation>
+		<attribute name="path" use="required">
+			<annotation>
+				<documentation>
+					Relative path to be configured as include path allowing to find header files for compilation.
+					Path is relative from project root directory. "/"
+					used as directory separator.
+				</documentation>
+			</annotation>
+			<simpleType>
+				<restriction base="string">
+					<pattern value="([$a-zA-Z_\-\s0-9\.\|\(\)']+/?)+" />
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="toolchain" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks the path specific for particular tool.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="compiler" type="IDREFS" use="optional">
+			<annotation>
+				<documentation>
+					Marks the path specific for particular compiler
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="type" type="ksdk:includeTypeEnum" use="optional">
+			<annotation>
+				<documentation>
+					Type of the include to use.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="relative" type="boolean" use="optional" default="false">
+			<annotation>
+				<documentation>
+					Used to distinguish absolute and relative paths: if true, the path is relative to component directory, otherwise is relative to project root.
+					As default, path is relative to project root directory.
+				</documentation>
+			</annotation>
+		</attribute>
+    </complexType>
+
+    <complexType name="defineType">
+		<annotation>
+			<documentation>Define specification. It can refers to one or more debug configurations.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="ksdk:referenceType">
+				<attribute name="name" type="string" use="required">
+					<annotation>
+						<documentation>
+							The name of the define.
+							Manifest macro symbols can be used.
+							They are delimited using $| and | characters and replaced by MCUXpresso tools with specific string derived from device selected in the tools.
+							Usage macros: device, device_full_name, package, core_name, core_type, core, compiler, toolchain.
+							(e.g. $|device_full_name| - element "device", attribute "full_name")
+						</documentation>
+					</annotation>
+				</attribute>
+				<attribute name="value" type="string" use="optional">
+					<annotation>
+						<documentation>
+							The value of the define, it may be null.
+							The name of the define.
+							Manifest macro symbols can be used.
+							They are delimited using $| and | characters and replaced by MCUXpresso tools with specific string derived from device selected in the tools.
+							Usage macros: device, device_full_name, package, core_name, core_type, core, compiler, toolchain.
+							(e.g. $|device_full_name| - element "device", attribute "full_name")
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</complexContent>
+    </complexType>
+
+    <complexType name="coreType">
+    	<annotation>
+    		<documentation>Core definition type.</documentation>
+    	</annotation>
+    	<complexContent>
+    		<extension base="ksdk:identifiableWithDefines">
+				<sequence>
+					<element name="memory" type="ksdk:memoryType" minOccurs="0" maxOccurs="unbounded" />
+					<element name="debug_configurations" minOccurs="0">
+						<annotation>
+							<documentation>
+								Debug configurations container.
+							</documentation>
+						</annotation>
+						<complexType>
+							<sequence>
+								<element name="debug_configuration" type="ksdk:debugConfigurationRefType" maxOccurs="unbounded">
+									<annotation>
+										<documentation>
+											Supported debug configurations/extensions.
+										</documentation>
+									</annotation>
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="linkerSettings" type="ksdk:linkerSettingsType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>
+								Linker settings container.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+   			    <attribute name="fpu" type="boolean" use="required">
+    				<annotation><documentation>Floating point unit present</documentation></annotation>
+    			</attribute>
+    			<attribute name="dsp" type="boolean" use="optional">
+    				<annotation>
+						<documentation>
+							Defines if core supports DSP instructions
+							The attribute is required for cm33 core types, where the dsp is 'configurable'
+						</documentation>
+					</annotation>
+    			</attribute>
+    			<attribute name="type" type="ksdk:coreEnum" use="required">
+    				<annotation></annotation>
+    			</attribute>
+  				<attribute name="slave_roles" type="IDREFS" use="optional">
+					<annotation>
+						<documentation>
+							The slave role references.
+						</documentation>
+					</annotation>
+				</attribute>
+ 				<attribute name="boot_role" type="ksdk:bootRoleTypeEnum" use="optional">
+					<annotation>
+						<documentation>
+							The core boot role references.
+						</documentation>
+					</annotation>
+				</attribute>
+      		</extension>
+    	</complexContent>
+    </complexType>
+</schema>

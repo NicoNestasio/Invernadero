@@ -1,0 +1,16 @@
+fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+LCD_CHAR.c:20:6:delay	24	static
+LCD_CHAR.c:25:6:write_com_lcd4	16	static
+LCD_CHAR.c:46:6:write_data_lcd4	16	static
+LCD_CHAR.c:67:6:mode4bit	8	static
+LCD_CHAR.c:120:6:ClearDisplay4	8	static
+LCD_CHAR.c:125:6:ReturnHome4	8	static
+LCD_CHAR.c:130:6:EntryModeSet4	16	static
+LCD_CHAR.c:136:6:DisplayOnOff4	16	static
+LCD_CHAR.c:142:6:CurDisShift4	16	static
+LCD_CHAR.c:148:6:FuntionSet4	16	static
+LCD_CHAR.c:154:6:SetCGRAMAddress4	16	static
+LCD_CHAR.c:160:6:SetDDRAMAddress4	16	static
+LCD_CHAR.c:166:6:lcd_char_init4	8	static
+LCD_CHAR.c:176:6:line_lcd4	16	static
+LCD_CHAR.c:192:15:char_read_lcd4	24	static

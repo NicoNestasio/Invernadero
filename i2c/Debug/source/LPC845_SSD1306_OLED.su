@@ -1,0 +1,4 @@
+fsl_clock.h:441:20:CLOCK_EnableClock	16	static
+fsl_clock.h:452:20:CLOCK_DisableClock	16	static
+fsl_clock.h:463:20:CLOCK_Select	16	static
+LPC845_SSD1306_OLED.c:27:5:main	32	static

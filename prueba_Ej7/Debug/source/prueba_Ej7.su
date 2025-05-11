@@ -1,0 +1,8 @@
+fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+prueba_Ej7.c:80:6:cero	32	static
+prueba_Ej7.c:98:6:delay	24	static
+prueba_Ej7.c:102:6:uno	32	static
+prueba_Ej7.c:112:6:dos	32	static
+prueba_Ej7.c:131:7:unidades	16	static
+prueba_Ej7.c:130:6:decenas	32	static
+prueba_Ej7.c:158:5:main	8	static

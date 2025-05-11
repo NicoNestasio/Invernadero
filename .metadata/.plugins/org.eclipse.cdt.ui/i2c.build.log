@@ -1,0 +1,6 @@
+21:08:50 **** Incremental Build of configuration Debug for project i2c ****
+make -r -j2 all 
+make: Nothing to be done for 'all'.
+
+21:08:51 Build Finished. 0 errors, 0 warnings. (took 919ms)
+

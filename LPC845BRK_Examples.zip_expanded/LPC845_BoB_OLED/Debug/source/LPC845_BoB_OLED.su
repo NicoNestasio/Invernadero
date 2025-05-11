@@ -1,0 +1,2 @@
+fsl_clock.h:483:20:CLOCK_Select	16	static
+LPC845_BoB_OLED.c:88:5:main	64	static
