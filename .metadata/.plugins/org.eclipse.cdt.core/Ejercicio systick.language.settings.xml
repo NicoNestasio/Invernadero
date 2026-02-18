@@ -2,268 +2,12 @@
 <project>
 	<configuration id="com.crt.advproject.config.exe.debug.594977945" name="Debug">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
-			<provider id="com.crt.advproject.GCCBuildCommandParser">
-				<language id="org.eclipse.cdt.core.gcc">
-					<resource project-relative-path="startup/startup_lpc845.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="board/board.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="source/Ejercicio systick.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="source/mtb.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="board/clock_config.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="board/pin_mux.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="device/system_LPC845.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="source/semihost_hardfault.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-					<resource project-relative-path="board/peripherals.c">
-						<entry kind="includePath" name="/${ProjName}/board">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/source">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/device">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="includePath" name="/${ProjName}/CMSIS">
-							<flag value="VALUE_WORKSPACE_PATH"/>
-						</entry>
-						<entry kind="macro" name="CPU_LPC845M301JBD64" value="1"/>
-						<entry kind="macro" name="CPU_LPC845M301JBD64_cm0plus" value="1"/>
-						<entry kind="macro" name="CR_INTEGER_PRINTF" value="1"/>
-						<entry kind="macro" name="DEBUG" value="1"/>
-						<entry kind="macro" name="FSL_RTOS_BM" value="1"/>
-						<entry kind="macro" name="PRINTF_FLOAT_ENABLE" value="0"/>
-						<entry kind="macro" name="SDK_DEBUGCONSOLE" value="0"/>
-						<entry kind="macro" name="SDK_OS_BAREMETAL" value="1"/>
-						<entry kind="macro" name="__MCUXPRESSO" value="1"/>
-						<entry kind="macro" name="__REDLIB__" value="1"/>
-						<entry kind="macro" name="__USE_CMSIS" value="1"/>
-					</resource>
-				</language>
-			</provider>
 			<provider id="com.crt.advproject.GCCBuildSpecCompilerParser">
 				<language id="org.eclipse.cdt.core.gcc">
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/redlib/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/redlib/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/features/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/features/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_EPSILON__" value="0x1P-15K">
@@ -1492,22 +1236,22 @@
 					</entry>
 				</language>
 				<language id="org.eclipse.cdt.core.g++">
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/arm-none-eabi/thumb/v6-m/nofp">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/arm-none-eabi/thumb/v6-m/nofp">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/backward">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/backward">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include-fixed">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include-fixed">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_EPSILON__" value="0x1P-15K">
@@ -2862,10 +2606,10 @@
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider id="com.crt.advproject.GCCBuildSpecCompilerParser">
 				<language id="org.eclipse.cdt.core.gcc">
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/redlib/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/redlib/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/features/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/features/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_EPSILON__" value="0x1P-15K">
@@ -4097,22 +3841,22 @@
 					</entry>
 				</language>
 				<language id="org.eclipse.cdt.core.g++">
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/arm-none-eabi/thumb/v6-m/nofp">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/arm-none-eabi/thumb/v6-m/nofp">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/backward">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include/c++/8.3.1/backward">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include-fixed">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/lib/gcc/arm-none-eabi/8.3.1/include-fixed">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="C:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include">
+					<entry kind="includePath" name="D:/nxp/MCUXpressoIDE_11.1.1_3241/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.1.0.202001081728/tools/arm-none-eabi/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_EPSILON__" value="0x1P-15K">

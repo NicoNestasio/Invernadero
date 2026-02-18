@@ -33,8 +33,8 @@ int main(void) {
 	CLOCK_Select(kI2C1_Clk_From_MainClk);
 
 	CLOCK_EnableClock(kCLOCK_Swm);
-	SWM_SetMovablePinSelect(SWM0, kSWM_I2C1_SDA, kSWM_PortPin_P0_28);  // SDA to PIO0_28
-	SWM_SetMovablePinSelect(SWM0, kSWM_I2C1_SCL, kSWM_PortPin_P0_27);  // SCL to PIO0_27
+	SWM_SetMovablePinSelect(SWM0, kSWM_I2C1_SDA, kSWM_PortPin_P0_22);  // SDA to PIO0_28
+	SWM_SetMovablePinSelect(SWM0, kSWM_I2C1_SCL, kSWM_PortPin_P0_23);  // SCL to PIO0_27
 	CLOCK_DisableClock(kCLOCK_Swm);
 
 	I2C_MasterGetDefaultConfig(&i2config);                             // get the default config of i2c

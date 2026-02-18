@@ -1,49 +1,49 @@
 board/pin_mux.o board/pin_mux.d: ../board/pin_mux.c \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_common.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/fsl_device_registers.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/LPC845.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/core_cm0plus.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_version.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_compiler.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_gcc.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/system_LPC845.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/LPC845_features.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_clock.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_common.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_reset.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_iocon.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_swm.h \
- C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_swm_connections.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_common.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/fsl_device_registers.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/LPC845.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/core_cm0plus.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_version.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_compiler.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_gcc.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/system_LPC845.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/LPC845_features.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_clock.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_common.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_reset.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_iocon.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_swm.h \
+ D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_swm_connections.h \
  ../board/pin_mux.h
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_common.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_common.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/fsl_device_registers.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/fsl_device_registers.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/LPC845.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/LPC845.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/core_cm0plus.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/core_cm0plus.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_version.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_version.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_compiler.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_compiler.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\CMSIS/cmsis_gcc.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\CMSIS/cmsis_gcc.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/system_LPC845.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/system_LPC845.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\device/LPC845_features.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\device/LPC845_features.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_clock.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_clock.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_common.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_common.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_reset.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_reset.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_iocon.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_iocon.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_swm.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_swm.h:
 
-C:\Users\PC-INC\Documents\MCUXpressoIDE_11.1.1_3241\i2c\drivers/fsl_swm_connections.h:
+D:\nxp\MCUXpressoIDE_11.1.1_3241\workspace\i2c\drivers/fsl_swm_connections.h:
 
 ../board/pin_mux.h:

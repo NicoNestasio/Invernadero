@@ -1,0 +1,4 @@
+fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+fsl_gpio.h:172:24:GPIO_PinRead	24	static
+teclado.c:13:6:Teclado_Init	24	static
+teclado.c:30:6:Teclado_Scan	16	static
