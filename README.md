@@ -30,6 +30,7 @@ NOTA: El proyecto se encuentra en la carpeta 'Invernadero'
     * Teclado Matricial (Membrana o Push-buttons)
 
 ## 📌 Mapa de Conexiones (Pinout)
+![Conexiones](Invernadero/Inv.png)
 
 
 El firmware está desarrollado en **C** utilizando el SDK de NXP. 
